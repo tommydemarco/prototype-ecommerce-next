@@ -1,6 +1,7 @@
 .cart-drawer {
   position: fixed;
   top: 0;
+  z-index: 1;
   right: -400px;
   height: 100vh;
   width: 400px;

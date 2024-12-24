@@ -16,7 +16,7 @@ export const Header: React.FC = () => {
     <header className={styles.header}>
       <nav className={styles.leftSection}>
         <Link href="/" className={styles.logo}>
-          Next.js
+          Next
         </Link>
         <a href="#link1" className={styles.link}>
           Link 1
