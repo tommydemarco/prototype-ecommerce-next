@@ -1,12 +1,17 @@
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --color-light-1: #fffdfd;
+  --color-light-2: #dddddd;
+  --color-dark-1: #171717;
+  --color-dark-2: #3e3e3e;
+  --border-radius: 5px;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --color-light-1: #fffdfd;
+    --color-light-2: #dddddd;
+    --color-dark-1: #171717;
+    --color-dark-2: #3e3e3e;
   }
 }
 
