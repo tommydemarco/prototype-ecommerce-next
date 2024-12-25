@@ -2,8 +2,8 @@
   display: flex;
   flex-wrap: wrap;
   gap: 40px;
-  width: 90%;
-  max-width: 1200px;
+  width: var(--content-width);
+  max-width: var(--max-content-width);
   margin: 0 auto;
 }
 
@@ -55,11 +55,11 @@
 }
 
 .thumbnail {
-  border-radius: 4px;
+  border-radius: 1px;
 }
 
 .activeThumbnail {
-  border-color: var(--color-light-2);
+  border-color: var(--color-primary);
 }
 
 .rightColumn {

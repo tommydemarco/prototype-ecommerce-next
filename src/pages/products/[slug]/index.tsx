@@ -1,8 +1,11 @@
 import { ProductDetails } from "@/components/ProductDetails/ProductDetails";
+import { RelatedSlider } from "@/components/RelatedSlider/RelatedSlider";
+import { Product } from "@/types";
 import { GetServerSideProps, NextPage } from "next";
 
 interface PageProps {
-  product: any;
+  product: Product;
+  relatedProducts: Product[];
 }
 
 const product = {
@@ -27,15 +30,17 @@ export const getServerSideProps: GetServerSideProps<PageProps> = async (
 ) => {
   return {
     props: {
-      product: product,
+      product: product as unknown as Product,
+      relatedProducts: [product] as unknown as Product[],
     },
   };
 };
 
-const ProductPage: NextPage<PageProps> = ({ product }) => {
+const ProductPage: NextPage<PageProps> = ({ product, relatedProducts }) => {
   return (
     <>
       <ProductDetails product={product} />
+      <RelatedSlider title="Related products" products={relatedProducts} />
     </>
   );
 };
