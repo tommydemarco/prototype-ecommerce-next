@@ -19,12 +19,6 @@
   color: var(--color-light-1);
 }
 
-.link {
-  text-decoration: none;
-  color: var(--color-light-2);
-  font-size: 1rem;
-}
-
 .middleSection {
   display: flex;
   align-items: center;

@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import styles from "./Header.module.css";
 import { Button } from "../Button/Button";
-import Link from "next/link";
+import NextLink from "next/link";
 import { useCart } from "@/store/CartContext";
+import { Link } from "../Link/Link";
 
 export const Header: React.FC = () => {
   const { cartProducts, setIsCartOpen } = useCart();
@@ -15,15 +16,11 @@ export const Header: React.FC = () => {
   return (
     <header className={styles.header}>
       <nav className={styles.leftSection}>
-        <Link href="/" className={styles.logo}>
+        <NextLink href="/" className={styles.logo}>
           Next
-        </Link>
-        <a href="#link1" className={styles.link}>
-          Link 1
-        </a>
-        <a href="#link2" className={styles.link}>
-          Link 2
-        </a>
+        </NextLink>
+        <Link href="#link1">Link 1</Link>
+        <Link href="#link2">Link 2</Link>
       </nav>
       <div className={styles.middleSection}>
         <div className={styles.searchContainer}>

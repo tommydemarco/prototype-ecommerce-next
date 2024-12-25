@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { Link } from "../Link/Link";
 import { Button } from "../Button/Button";
 import styles from "./Footer.module.css";
 

@@ -34,16 +34,6 @@
   gap: 1rem;
 }
 
-.links a {
-  color: var(--color-light-1);
-  text-decoration: none;
-  transition: color 0.3s;
-}
-
-.links a:hover {
-  color: var(--color-light-2);
-}
-
 .backToTop {
   margin-left: auto;
 }
