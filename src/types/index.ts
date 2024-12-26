@@ -7,6 +7,11 @@ export interface Product {
   stock_quantity: number;
 }
 
+export interface PageMetadata {
+  title: string;
+  description?: string;
+}
+
 export const product = {
   _id: { $oid: "674f6a9619d9f1da02630b4e" },
   product_id: "P1",

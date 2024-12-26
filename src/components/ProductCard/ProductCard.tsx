@@ -7,9 +7,11 @@ import Link from "next/link";
 interface ProductCardProps {
   product: Product;
   layoutType: "square" | "rectangular";
+  className?: string;
 }
 
 export const ProductCard: React.FC<ProductCardProps> = ({
+  className,
   product,
   layoutType,
 }) => {
@@ -17,7 +19,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({
     <Link
       href={`/products/${product.slug}`}
       title={product.name}
-      className={`${styles.container} ${styles[layoutType]}`}
+      className={`${styles.container} ${styles[layoutType]} ${className ? className : ``}`}
     >
       <div className={styles.imageContainer}>
         <Image

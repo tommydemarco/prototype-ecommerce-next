@@ -1,13 +1,18 @@
 import { FeaturedSlider } from "@/components/FeaturedSlider/FeaturedSlider";
+import { HightlightedHero } from "@/components/HightlightedHero/HightlightedHero";
 import { product, Product } from "@/types";
 import { GetStaticProps, NextPage } from "next";
 import Head from "next/head";
 
 interface PageProps {
+  highlightedProducts: Product[];
   featuredProducts: Product[];
 }
 
-const HomePage: NextPage<PageProps> = ({ featuredProducts }) => {
+const HomePage: NextPage<PageProps> = ({
+  highlightedProducts,
+  featuredProducts,
+}) => {
   return (
     <>
       <Head>
@@ -16,6 +21,10 @@ const HomePage: NextPage<PageProps> = ({ featuredProducts }) => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
+      <HightlightedHero
+        mainHighlighted={highlightedProducts[0]}
+        secondaryHighlighted={[highlightedProducts[1], highlightedProducts[2]]}
+      />
       <FeaturedSlider products={featuredProducts} />
     </>
   );
@@ -26,6 +35,7 @@ export default HomePage;
 export const getStaticProps: GetStaticProps<PageProps> = async (context) => {
   return {
     props: {
+      highlightedProducts: [product, product, product],
       featuredProducts: [
         product,
         product,

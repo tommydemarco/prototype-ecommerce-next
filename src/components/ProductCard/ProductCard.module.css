@@ -21,7 +21,7 @@
 }
 
 .rectangular {
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 4 / 3.2;
 }
 
 .imageContainer {
@@ -33,7 +33,7 @@
 }
 
 .container.rectangular .imageContainer {
-  padding-bottom: 75%;
+  padding-bottom: 80%;
 }
 
 .mainImage {
