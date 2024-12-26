@@ -3,6 +3,7 @@ import Image from "next/image";
 import styles from "./ProductDetails.module.css";
 import { Product } from "@/types";
 import { Button } from "../Button/Button";
+import { HtmlContent } from "../HtmlContent/HtmlContent";
 
 interface ProductDetailsProps {
   product: Product;
@@ -67,10 +68,7 @@ export const ProductDetails: React.FC<ProductDetailsProps> = ({ product }) => {
       </div>
       <div className={styles.rightColumn}>
         <h1 className={styles.title}>{product.name}</h1>
-        <div
-          dangerouslySetInnerHTML={{ __html: product.description }}
-          className={styles.description}
-        />
+        <HtmlContent content={product.description} />
         <p className={styles.price}>${product.price.toFixed(2)}</p>
         {product.stock_quantity > 0 ? (
           <Button primary onClick={() => {}}>

@@ -1,11 +1,13 @@
+import { FeaturedSlider } from "@/components/FeaturedSlider/FeaturedSlider";
+import { product, Product } from "@/types";
 import { GetStaticProps, NextPage } from "next";
 import Head from "next/head";
 
 interface PageProps {
-  products: any[];
+  featuredProducts: Product[];
 }
 
-const HomePage: NextPage<PageProps> = () => {
+const HomePage: NextPage<PageProps> = ({ featuredProducts }) => {
   return (
     <>
       <Head>
@@ -14,7 +16,7 @@ const HomePage: NextPage<PageProps> = () => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div>Next ecommerce prototype</div>
+      <FeaturedSlider products={featuredProducts} />
     </>
   );
 };
@@ -24,7 +26,18 @@ export default HomePage;
 export const getStaticProps: GetStaticProps<PageProps> = async (context) => {
   return {
     props: {
-      products: [],
+      featuredProducts: [
+        product,
+        product,
+        product,
+        product,
+        product,
+        product,
+        product,
+        product,
+        product,
+        product,
+      ] as unknown as Product[],
     },
   };
 };

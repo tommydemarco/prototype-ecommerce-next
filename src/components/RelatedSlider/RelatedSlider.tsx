@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "./RelatedSlider.module.css";
 import { Product } from "@/types";
+import { ProductCard } from "../ProductCard/ProductCard";
 
 interface RelatedSliderProps {
   title: string;
@@ -16,7 +17,13 @@ export const RelatedSlider: React.FC<RelatedSliderProps> = ({
       <div className={styles.title}>{title}</div>
       <div className={styles.slider}>
         {products.map((product) => {
-          return <div>Product</div>;
+          return (
+            <ProductCard
+              layoutType="square"
+              product={product}
+              key={product.name}
+            />
+          );
         })}
       </div>
     </div>
