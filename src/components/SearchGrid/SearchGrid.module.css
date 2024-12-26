@@ -1,0 +1,5 @@
+.container {
+  width: var(--content-width);
+  max-width: var(--max-content-width);
+  display: flex;
+}
