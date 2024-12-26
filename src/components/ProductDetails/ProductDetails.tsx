@@ -4,12 +4,14 @@ import styles from "./ProductDetails.module.css";
 import { Product } from "@/types";
 import { Button } from "../Button/Button";
 import { HtmlContent } from "../HtmlContent/HtmlContent";
+import { useCart } from "@/store/CartContext";
 
 interface ProductDetailsProps {
   product: Product;
 }
 
 export const ProductDetails: React.FC<ProductDetailsProps> = ({ product }) => {
+  const { addProductToCart } = useCart();
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   const handlePrevImage = () => {
@@ -71,7 +73,7 @@ export const ProductDetails: React.FC<ProductDetailsProps> = ({ product }) => {
         <HtmlContent content={product.description} />
         <p className={styles.price}>${product.price.toFixed(2)}</p>
         {product.stock_quantity > 0 ? (
-          <Button primary onClick={() => {}}>
+          <Button primary onClick={() => addProductToCart(product)}>
             Add to Cart
           </Button>
         ) : (

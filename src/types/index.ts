@@ -1,10 +1,15 @@
 export interface Product {
   price: number;
   name: string;
+  product_id: string;
   slug: string;
   images: string[];
   description: string;
   stock_quantity: number;
+}
+
+export interface CartProduct extends Product {
+  quantity: number;
 }
 
 export interface PageMetadata {

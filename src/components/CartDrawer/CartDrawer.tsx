@@ -2,6 +2,7 @@ import React from "react";
 import { useCart } from "@/store/CartContext";
 import { Button } from "../Button/Button";
 import styles from "./CartDrawer.module.css";
+import { CartProduct } from "../CartProduct/CartProduct";
 
 export const CartDrawer: React.FC = () => {
   const { cartProducts, isCartOpen, setIsCartOpen } = useCart();
@@ -21,7 +22,13 @@ export const CartDrawer: React.FC = () => {
           &times;
         </Button>
       </div>
-      <div className={styles.content}>Contents</div>
+      <div className={styles.content}>
+        {cartProducts.map((cartProduct) => {
+          return (
+            <CartProduct product={cartProduct} key={cartProduct.product_id} />
+          );
+        })}
+      </div>
     </div>
   );
 };

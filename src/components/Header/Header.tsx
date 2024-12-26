@@ -9,6 +9,11 @@ export const Header: React.FC = () => {
   const { cartProducts, setIsCartOpen } = useCart();
   const [searchValue, setSearchValue] = useState("");
 
+  const itemsInCart = cartProducts.reduce(
+    (prev, next) => prev + next.quantity,
+    0
+  );
+
   const handleSearch = () => {
     console.log("Search value:", searchValue);
   };
@@ -43,7 +48,7 @@ export const Header: React.FC = () => {
       <div className={styles.rightSection}>
         <Button
           primary
-          badge={cartProducts.length}
+          badge={itemsInCart}
           onClick={() => setIsCartOpen(true)}
           className={styles.button}
         >
