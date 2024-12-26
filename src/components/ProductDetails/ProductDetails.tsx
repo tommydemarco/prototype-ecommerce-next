@@ -11,7 +11,7 @@ interface ProductDetailsProps {
 }
 
 export const ProductDetails: React.FC<ProductDetailsProps> = ({ product }) => {
-  const { addProductToCart } = useCart();
+  const { addProductToCart, setIsCartOpen } = useCart();
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   const handlePrevImage = () => {
@@ -73,7 +73,13 @@ export const ProductDetails: React.FC<ProductDetailsProps> = ({ product }) => {
         <HtmlContent content={product.description} />
         <p className={styles.price}>${product.price.toFixed(2)}</p>
         {product.stock_quantity > 0 ? (
-          <Button primary onClick={() => addProductToCart(product)}>
+          <Button
+            primary
+            onClick={() => {
+              addProductToCart(product);
+              setIsCartOpen(true);
+            }}
+          >
             Add to Cart
           </Button>
         ) : (
