@@ -18,7 +18,7 @@ export const SearchGrid: React.FC<SearchGridProps> = ({
     <div className={styles.container}>
       <div className={styles.categoriesColumn}>{categories}</div>
       <div className={styles.productsColumn}>
-        {searchResults.length ? (
+        {searchResults.length > 0 ? (
           searchResults.map((product) => {
             return (
               <ProductCard

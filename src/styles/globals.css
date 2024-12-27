@@ -6,7 +6,8 @@
   --color-primary: #2ecc71;
   --border-radius: 5px;
   --content-width: 90%;
-  --max-content-width: 1200px;
+  --max-content-width: 1380px;
+  --product-gap: 1.5rem;
 }
 
 @media (prefers-color-scheme: dark) {

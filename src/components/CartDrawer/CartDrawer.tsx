@@ -5,7 +5,13 @@ import styles from "./CartDrawer.module.css";
 import { CartProduct } from "../CartProduct/CartProduct";
 
 export const CartDrawer: React.FC = () => {
-  const { cartProducts, isCartOpen, setIsCartOpen } = useCart();
+  const {
+    cartProducts,
+    isCartOpen,
+    setIsCartOpen,
+    decrementProductFromCart,
+    removeProductFromCart,
+  } = useCart();
   const cartTotal = cartProducts.reduce(
     (prev, next) => prev + next.quantity * next.price,
     0
@@ -35,26 +41,8 @@ export const CartDrawer: React.FC = () => {
                   <div className={styles.productsContainer}>
                     <CartProduct
                       product={cartProduct}
-                      key={cartProduct.product_id}
-                    />
-                    <CartProduct
-                      product={cartProduct}
-                      key={cartProduct.product_id}
-                    />
-                    <CartProduct
-                      product={cartProduct}
-                      key={cartProduct.product_id}
-                    />
-                    <CartProduct
-                      product={cartProduct}
-                      key={cartProduct.product_id}
-                    />
-                    <CartProduct
-                      product={cartProduct}
-                      key={cartProduct.product_id}
-                    />
-                    <CartProduct
-                      product={cartProduct}
+                      decrementProductFromCart={decrementProductFromCart}
+                      removeProductFromCart={removeProductFromCart}
                       key={cartProduct.product_id}
                     />
                   </div>

@@ -8,6 +8,13 @@ export interface Product {
   stock_quantity: number;
 }
 
+export interface Category {
+  category_id: string;
+  name: string;
+  description: string;
+  slug: string;
+}
+
 export interface CartProduct extends Product {
   quantity: number;
 }
@@ -33,3 +40,27 @@ export const product = {
     "/images/garden-trowel-3.webp",
   ],
 };
+
+export const categories = [
+  {
+    category_id: "1",
+    name: "Planting Tools",
+    description:
+      "Tools designed for planting seeds, bulbs, and saplings with precision and ease.",
+    slug: "planting-tools",
+  },
+  {
+    category_id: "2",
+    name: "Pruning and Cutting Tools",
+    description:
+      "Tools for trimming, cutting, and maintaining plants and trees, including shears and loppers.",
+    slug: "pruning-and-cutting-tools",
+  },
+  {
+    category_id: "3",
+    name: "Weeding and Soil Preparation",
+    description:
+      "Essential tools for removing weeds and preparing soil for planting.",
+    slug: "weeding-and-soil-preparation",
+  },
+];

@@ -4,8 +4,10 @@ import { Button } from "../Button/Button";
 import NextLink from "next/link";
 import { useCart } from "@/store/CartContext";
 import { Link } from "../Link/Link";
+import { useRouter } from "next/router";
 
 export const Header: React.FC = () => {
+  const router = useRouter();
   const { cartProducts, setIsCartOpen } = useCart();
   const [searchValue, setSearchValue] = useState("");
 
@@ -15,7 +17,11 @@ export const Header: React.FC = () => {
   );
 
   const handleSearch = () => {
-    console.log("Search value:", searchValue);
+    const formattedSearchValue = encodeURIComponent(
+      searchValue.trim().toLowerCase()
+    );
+    console.log(searchValue, formattedSearchValue);
+    router.push(`${formattedSearchValue}`);
   };
 
   return (
@@ -24,7 +30,7 @@ export const Header: React.FC = () => {
         <NextLink href="/" className={styles.logo}>
           Next
         </NextLink>
-        <Link href="#link1">Link 1</Link>
+        <Link href="/search">All products</Link>
         <Link href="#link2">Link 2</Link>
       </nav>
       <div className={styles.middleSection}>

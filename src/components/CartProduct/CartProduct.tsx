@@ -6,10 +6,15 @@ import { useCart } from "@/store/CartContext";
 
 interface CartProductProps {
   product: CartProductType;
+  decrementProductFromCart: (product: CartProductType) => void;
+  removeProductFromCart: (product: CartProductType) => void;
 }
 
-export const CartProduct: React.FC<CartProductProps> = ({ product }) => {
-  const { decrementProductFromCart, removeProductFromCart } = useCart();
+export const CartProduct: React.FC<CartProductProps> = ({
+  product,
+  removeProductFromCart,
+  decrementProductFromCart,
+}) => {
   const itemPrice = product.quantity * product.price;
 
   const decrement = (product: CartProductType) => {
