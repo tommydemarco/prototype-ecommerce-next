@@ -10,6 +10,7 @@ export const Header: React.FC = () => {
   const router = useRouter();
   const { cartProducts, setIsCartOpen } = useCart();
   const [searchValue, setSearchValue] = useState("");
+  const [isSidebarOpen, setIsSidebarOpen] = useState<boolean>(false);
 
   const itemsInCart = cartProducts.reduce(
     (prev, next) => prev + next.quantity,
@@ -24,42 +25,120 @@ export const Header: React.FC = () => {
   };
 
   return (
-    <header className={styles.header}>
-      <nav className={styles.leftSection}>
-        <NextLink href="/" className={styles.logo}>
-          Next
-        </NextLink>
-        <Link href="/search">All products</Link>
-        <Link href="/search?price-limit=20">Cheapest</Link>
-      </nav>
-      <div className={styles.middleSection}>
-        <div className={styles.searchContainer}>
-          <input
-            type="text"
-            className={styles.searchBar}
-            placeholder="Search..."
-            value={searchValue}
-            onChange={(e) => setSearchValue(e.target.value)}
-          />
+    <>
+      <header className={styles.header}>
+        <Button
+          primary={false}
+          ariaLabel="Toggle menu"
+          className={styles.burgerMenu}
+          onClick={() => setIsSidebarOpen(true)}
+        >
+          <span>&#9472;</span>
+          <span>&#9472;</span>
+          <span>&#9472;</span>
+        </Button>
+        <nav className={styles.leftSection}>
+          <NextLink href="/" className={styles.logo}>
+            Next
+          </NextLink>
+          <div className={styles.navLinks}>
+            <Link href="/search">All products</Link>
+            <Link href="/search?price-limit=20">Cheapest</Link>
+          </div>
+        </nav>
+        <div className={styles.middleSection}>
+          <div className={styles.searchContainer}>
+            <input
+              type="text"
+              className={styles.searchBar}
+              placeholder="Search..."
+              value={searchValue}
+              onChange={(e) => setSearchValue(e.target.value)}
+            />
+            <Button
+              primary={false}
+              className={styles.searchButton}
+              onClick={handleSearch}
+            >
+              Go
+            </Button>
+          </div>
+        </div>
+        <div className={styles.rightSection}>
           <Button
-            primary={false}
-            className={styles.searchButton}
-            onClick={handleSearch}
+            primary
+            badge={itemsInCart}
+            onClick={() => setIsCartOpen(true)}
+            className={styles.button}
           >
-            Go
+            Cart
           </Button>
         </div>
-      </div>
-      <div className={styles.rightSection}>
-        <Button
-          primary
-          badge={itemsInCart}
-          onClick={() => setIsCartOpen(true)}
-          className={styles.button}
-        >
-          Cart
-        </Button>
-      </div>
-    </header>
+      </header>
+      <aside
+        aria-hidden={!isSidebarOpen}
+        className={`${styles.headerSidebar} ${isSidebarOpen ? styles.open : styles.closed}`}
+      >
+        <div className={styles.headerSidebarElement}>
+          <Button
+            primary={false}
+            ariaLabel="Close menu"
+            className={styles.closeButton}
+            onClick={() => setIsSidebarOpen(false)}
+          >
+            &times;
+          </Button>
+          <div className={styles.title}>Menu</div>
+        </div>
+        <div className={styles.content}>
+          <div className={styles.searchContainer}>
+            <input
+              type="text"
+              className={styles.searchBar}
+              placeholder="Search..."
+              value={searchValue}
+              onChange={(e) => setSearchValue(e.target.value)}
+            />
+            <Button
+              primary={false}
+              className={styles.searchButton}
+              onClick={() => {
+                setIsSidebarOpen(false);
+                handleSearch();
+              }}
+            >
+              Go
+            </Button>
+          </div>
+          <div className={styles.sidebarNav}>
+            <Button
+              primary={false}
+              className={styles.sidebarButton}
+              onClick={() => {
+                setIsSidebarOpen(false);
+                router.push({
+                  pathname: `/search`,
+                });
+              }}
+            >
+              All products
+            </Button>
+            <Button
+              primary={false}
+              className={styles.sidebarButton}
+              onClick={() => {
+                setIsSidebarOpen(false);
+                router.push({
+                  pathname: "/search",
+                  query: { "price-limit": 20 },
+                });
+              }}
+            >
+              Cheapest
+            </Button>
+          </div>
+        </div>
+      </aside>
+    </>
   );
 };

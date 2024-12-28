@@ -7,9 +7,11 @@ interface ButtonProps {
   className?: string;
   children: React.ReactNode;
   badge?: number;
+  ariaLabel?: string;
 }
 
 export const Button: React.FC<ButtonProps> = ({
+  ariaLabel,
   onClick,
   primary,
   className,
@@ -25,7 +27,7 @@ export const Button: React.FC<ButtonProps> = ({
     .join(" ");
 
   return (
-    <button className={buttonClass} onClick={onClick}>
+    <button aria-label={ariaLabel} className={buttonClass} onClick={onClick}>
       {children}
       {!!badge && badge > 0 && <span className={styles.badge}>{badge}</span>}
     </button>

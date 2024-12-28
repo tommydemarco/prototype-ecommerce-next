@@ -20,7 +20,7 @@ export const CartDrawer: React.FC = () => {
   return (
     <>
       <div
-        className={`${styles["cart-drawer"]} ${isCartOpen ? styles.open : styles.closed}`}
+        className={`${styles.cartDrawer} ${isCartOpen ? styles.open : styles.closed}`}
       >
         <div className={styles.header}>
           <div className={styles.title}>Your cart</div>

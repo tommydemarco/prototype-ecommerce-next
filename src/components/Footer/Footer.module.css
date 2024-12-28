@@ -49,7 +49,7 @@
 @media (max-width: 568px) {
   .topSection {
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
     gap: 2.5rem;
   }
 
