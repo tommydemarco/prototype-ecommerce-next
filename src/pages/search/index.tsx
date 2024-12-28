@@ -2,6 +2,8 @@ import { FilterItems } from "@/components/FilterItems/FilterItems";
 import { SearchGrid } from "@/components/SearchGrid/SearchGrid";
 import { Category, Product, product, categories as cats } from "@/types";
 import { sortingParams } from "@/utils/sortingParams";
+import { appName } from "@/utils/textConstants";
+import Head from "next/head";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 
@@ -17,26 +19,40 @@ const SearchPage = () => {
   }, []);
 
   useEffect(() => {
-    setSearchResults(results);
-  }, [router.query.search]);
+    if (router.query.category === undefined && router.isReady) {
+      console.log("ROUTER QUERY INDEX: ", router.query);
+      setSearchResults(results);
+    }
+  }, [router.query, router.isReady]);
 
   return (
-    <SearchGrid
-      searchResults={searchResults}
-      categories={
-        <FilterItems
-          filterTitle="Categories"
-          filterItems={categories.map((category) => ({
-            name: category.name,
-            routerPath: category.slug,
-            asSearchParam: false,
-          }))}
+    <>
+      <Head>
+        <title>Search Products | {appName}</title>
+        <meta
+          name="description"
+          content={`Search your fevourite products from ${appName}`}
         />
-      }
-      sortParams={
-        <FilterItems filterTitle="Sort by" filterItems={sortingParams} />
-      }
-    />
+      </Head>
+      <SearchGrid
+        searchResults={searchResults}
+        categories={
+          <FilterItems
+            filterTitle="Categories"
+            filterItems={[
+              { name: "All", path: "" },
+              ...categories.map((category) => ({
+                name: category.name,
+                path: category.slug,
+              })),
+            ]}
+          />
+        }
+        sortParams={
+          <FilterItems filterTitle="Sort by" filterItems={sortingParams} />
+        }
+      />
+    </>
   );
 };
 

@@ -20,7 +20,6 @@ export const Header: React.FC = () => {
     const formattedSearchValue = encodeURIComponent(
       searchValue.trim().toLowerCase()
     );
-    console.log(searchValue, formattedSearchValue);
     router.push(`${formattedSearchValue}`);
   };
 
@@ -31,7 +30,7 @@ export const Header: React.FC = () => {
           Next
         </NextLink>
         <Link href="/search">All products</Link>
-        <Link href="#link2">Link 2</Link>
+        <Link href="/search?price-limit=20">Cheapest</Link>
       </nav>
       <div className={styles.middleSection}>
         <div className={styles.searchContainer}>
