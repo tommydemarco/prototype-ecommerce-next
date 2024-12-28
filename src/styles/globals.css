@@ -7,6 +7,7 @@
   --border-radius: 5px;
   --content-width: 90%;
   --max-content-width: 1380px;
+  --max-content-width-restricted: 932px;
   --product-gap: 1.5rem;
 }
 

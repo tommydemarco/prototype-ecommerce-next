@@ -118,18 +118,28 @@ export const FilterItems: React.FC<FilterItemsProps> = ({
                 </Link>
               </li>
             ))}
-        {}
       </ul>
       <select
         className={styles.mobileSelect}
         onChange={handleSelectChange}
         title={filterTitle}
+        disabled={isLoading}
       >
-        {filterItems.map((item) => (
-          <option key={item.name} value={item.name}>
-            {item.name}
+        {isLoading ? (
+          <option selected disabled>
+            Categories are loading...
           </option>
-        ))}
+        ) : (
+          filterItems.map((item) => (
+            <option
+              selected={activeItem?.name === item.name}
+              key={item.name}
+              value={item.name}
+            >
+              {item.name}
+            </option>
+          ))
+        )}
       </select>
     </div>
   );

@@ -22,6 +22,7 @@ export const Header: React.FC = () => {
       pathname: `/search`,
       query: { q: searchValue },
     });
+    setSearchValue("");
   };
 
   return (

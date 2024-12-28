@@ -1,4 +1,14 @@
 .container {
-  max-width: var(--max-content-width);
+  width: var(--content-width);
+  max-width: var(--max-content-width-restricted);
   margin: 0 auto;
+}
+
+.container h1 {
+  margin-bottom: 2rem;
+}
+
+.container h2,
+.container p {
+  margin-bottom: 1rem;
 }
