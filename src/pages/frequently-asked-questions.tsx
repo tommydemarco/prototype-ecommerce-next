@@ -11,7 +11,7 @@ interface PageProps {
   pageData: StaticPageData;
 }
 
-const CookiePolicyPage: NextPage<PageProps> = ({ pageData }) => {
+const FAQPage: NextPage<PageProps> = ({ pageData }) => {
   return (
     <>
       <Head>
@@ -25,11 +25,11 @@ const CookiePolicyPage: NextPage<PageProps> = ({ pageData }) => {
   );
 };
 
-export default CookiePolicyPage;
+export default FAQPage;
 
 export const getStaticProps: GetStaticProps<PageProps> = async () => {
   const pageData = await withMongoClient(async (client) => {
-    return await fetchStaticPageData(client, "cookie-policy");
+    return await fetchStaticPageData(client, "frequently-asked-questions");
   });
 
   if (!pageData) return { notFound: true };

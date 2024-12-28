@@ -7,7 +7,7 @@ import Head from "next/head";
 
 interface PageProps {
   product: Product;
-  relatedProducts: Product[];
+  suggestedProducts: Product[];
 }
 
 export const getServerSideProps: GetServerSideProps<PageProps> = async (
@@ -16,7 +16,7 @@ export const getServerSideProps: GetServerSideProps<PageProps> = async (
   return {
     props: {
       product: product as unknown as Product,
-      relatedProducts: [
+      suggestedProducts: [
         product,
         product,
         product,
@@ -32,7 +32,7 @@ export const getServerSideProps: GetServerSideProps<PageProps> = async (
   };
 };
 
-const ProductPage: NextPage<PageProps> = ({ product, relatedProducts }) => {
+const ProductPage: NextPage<PageProps> = ({ product, suggestedProducts }) => {
   return (
     <>
       <Head>
@@ -42,7 +42,7 @@ const ProductPage: NextPage<PageProps> = ({ product, relatedProducts }) => {
         <meta name="description" content={product.description} />
       </Head>
       <ProductDetails product={product} />
-      <RelatedSlider title="Related products" products={relatedProducts} />
+      <RelatedSlider title="Suggested products" products={suggestedProducts} />
     </>
   );
 };

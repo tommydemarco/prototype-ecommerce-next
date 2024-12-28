@@ -17,10 +17,10 @@ export const Header: React.FC = () => {
   );
 
   const handleSearch = () => {
-    const formattedSearchValue = encodeURIComponent(
-      searchValue.trim().toLowerCase()
-    );
-    router.push(`${formattedSearchValue}`);
+    router.push({
+      pathname: `/search`,
+      query: { q: searchValue },
+    });
   };
 
   return (

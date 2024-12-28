@@ -14,7 +14,7 @@ export const Footer: React.FC = () => {
             <Link href="/terms-and-conditions">Terms & Conditions</Link>
             <Link href="/cookie-policy">Cookie Policy</Link>
             <Link href="/privacy-policy">Privacy Policy</Link>
-            <Link href="/faq">FAQ</Link>
+            <Link href="/frequently-asked-questions">FAQ</Link>
           </div>
           <Button
             primary={false}

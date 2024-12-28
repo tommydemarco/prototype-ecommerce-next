@@ -57,19 +57,26 @@
   left: 10px;
   z-index: 1;
   font-size: 1rem;
+  margin-right: 10px;
   background-color: var(--color-dark-1);
   border-radius: var(--border-radius);
   border: 2px solid var(--color-dark-2);
 }
 
 .name {
-  padding: 10px;
+  min-height: 44px;
+  padding: 2px 10px;
+  display: flex;
+  align-items: center;
   font-weight: bold;
   color: var(--color-light-2);
 }
 
 .price {
-  padding: 10px;
+  min-height: 44px;
+  padding: 2px 10px;
+  display: flex;
+  align-items: center;
   font-size: 1rem;
   font-weight: bold;
   border-radius: var(--border-radius);

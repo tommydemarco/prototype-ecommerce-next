@@ -1,36 +1,42 @@
 import { HtmlContent } from "@/components/HtmlContent/HtmlContent";
-import { PageMetadata } from "@/types";
+import { fetchStaticPageData } from "@/database/fetchStaticPageData";
+import { withMongoClient } from "@/database/withMongoClient";
+import { StaticPageData } from "@/types";
 import { appName } from "@/utils/textConstants";
 import { GetStaticProps, NextPage } from "next";
 import Head from "next/head";
 import React from "react";
 
 interface PageProps {
-  pageMetadata: PageMetadata;
-  pageContent: string;
+  pageData: StaticPageData;
 }
 
-const AboutPage: NextPage<PageProps> = ({ pageMetadata, pageContent }) => {
+const AboutPage: NextPage<PageProps> = ({ pageData }) => {
   return (
     <>
       <Head>
         <title>
-          {pageMetadata.title} | {appName}
+          {pageData.title} | {appName}
         </title>
-        <meta name="description" content={pageMetadata.description} />
+        <meta name="description" content={pageData.description} />
       </Head>
-      <HtmlContent content={pageContent} />
+      <HtmlContent content={pageData.content} />
     </>
   );
 };
 
 export default AboutPage;
 
-export const getStaticProps: GetStaticProps<PageProps> = async (context) => {
+export const getStaticProps: GetStaticProps<PageProps> = async () => {
+  const pageData = await withMongoClient(async (client) => {
+    return await fetchStaticPageData(client, "about");
+  });
+
+  if (!pageData) return { notFound: true };
+
   return {
     props: {
-      pageMetadata: { title: "About" },
-      pageContent: "<h2>About</h2>",
+      pageData: pageData,
     },
   };
 };

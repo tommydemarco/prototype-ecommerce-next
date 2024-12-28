@@ -12,16 +12,21 @@ const results = [product, product, product];
 const SearchPage = () => {
   const router = useRouter();
   const [searchResults, setSearchResults] = useState<Product[]>([]);
+  const [isCategoriesLoading, setIsCategoriesLoading] = useState<boolean>(true);
   const [categories, setCategories] = useState<Category[]>([]);
 
   useEffect(() => {
-    setCategories(cats);
+    setTimeout(() => {
+      setCategories(cats);
+      setIsCategoriesLoading(false);
+    }, 1000);
   }, []);
 
   useEffect(() => {
-    if (router.query.category === undefined && router.isReady) {
-      console.log("ROUTER QUERY INDEX: ", router.query);
-      setSearchResults(results);
+    if (router.isReady) {
+      setTimeout(() => {
+        setSearchResults(results);
+      }, 1000);
     }
   }, [router.query, router.isReady]);
 
@@ -35,9 +40,11 @@ const SearchPage = () => {
         />
       </Head>
       <SearchGrid
+        isLoading={true}
         searchResults={searchResults}
         categories={
           <FilterItems
+            isLoading={isCategoriesLoading}
             filterTitle="Categories"
             filterItems={[
               { name: "All", path: "" },

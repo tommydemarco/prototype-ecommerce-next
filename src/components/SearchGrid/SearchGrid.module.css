@@ -14,11 +14,21 @@
   gap: var(--product-gap);
 }
 
+@media (min-width: 992px) {
+  .categoriesColumn {
+    width: 220px;
+  }
+
+  .sortColumn {
+    width: 125px;
+  }
+}
+
 .productsColumn > * {
   flex-basis: calc(33.33% - 1rem);
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 1259px) {
   .productsColumn > * {
     flex-basis: calc(50% - 1rem);
   }

@@ -19,9 +19,11 @@ export interface CartProduct extends Product {
   quantity: number;
 }
 
-export interface PageMetadata {
+export interface StaticPageData {
   title: string;
-  description?: string;
+  description: string;
+  content: string;
+  slug: string;
 }
 
 export const product = {
