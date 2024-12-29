@@ -17,13 +17,14 @@ export const ProductCard: React.FC<ProductCardProps> = ({
 }) => {
   return (
     <Link
-      href={`/products/${product.slug}`}
+      href={`/products/${product.product_slug}`}
       title={product.name}
       className={`${styles.container} ${styles[layoutType]} ${className ? className : ``}`}
     >
       <div className={styles.imageContainer}>
         <Image
-          src={product.images[0]}
+          // src={product.images[0]}
+          src={"/images/garden-trowel-1.webp"}
           alt={product.name}
           width={400}
           height={400}
@@ -32,7 +33,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({
       </div>
       <div className={styles.info}>
         <div className={styles.name}>{product.name}</div>
-        <div className={styles.price}>${product.price}</div>
+        <div className={styles.price}>${product.price?.toFixed(2)}</div>
       </div>
     </Link>
   );

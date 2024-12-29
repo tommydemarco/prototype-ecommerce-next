@@ -14,15 +14,21 @@ export const ProductDetails: React.FC<ProductDetailsProps> = ({ product }) => {
   const { addProductToCart, setIsCartOpen } = useCart();
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
+  const productImages = [
+    "/images/garden-trowel-1.webp",
+    "/images/garden-trowel-2.webp",
+    "/images/garden-trowel-3.webp",
+  ]; // product.images
+
   const handlePrevImage = () => {
     setCurrentImageIndex((prevIndex) =>
-      prevIndex === 0 ? product.images.length - 1 : prevIndex - 1
+      prevIndex === 0 ? productImages.length - 1 : prevIndex - 1
     );
   };
 
   const handleNextImage = () => {
     setCurrentImageIndex((prevIndex) =>
-      prevIndex === product.images.length - 1 ? 0 : prevIndex + 1
+      prevIndex === productImages.length - 1 ? 0 : prevIndex + 1
     );
   };
 
@@ -31,7 +37,7 @@ export const ProductDetails: React.FC<ProductDetailsProps> = ({ product }) => {
       <div className={styles.leftColumn}>
         <div className={styles.imageContainer}>
           <Image
-            src={product.images[currentImageIndex]}
+            src={productImages[currentImageIndex]}
             alt={product.name}
             width={400}
             height={400}
@@ -55,7 +61,7 @@ export const ProductDetails: React.FC<ProductDetailsProps> = ({ product }) => {
           </div>
         </div>
         <div className={styles.thumbnails}>
-          {product.images.map((image, index) => (
+          {productImages.map((image, index) => (
             <div
               key={index}
               className={`${styles.thumbnailContainer} ${

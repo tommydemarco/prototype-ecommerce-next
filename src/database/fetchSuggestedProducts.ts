@@ -10,9 +10,9 @@ export async function fetchSuggestedProducts(
   const collection = db.collection<Product>(productsTableName);
 
   const relatedProducts = await collection
-    .find({ slug: { $ne: slug } })
+    .find({ product_slug: { $ne: slug } })
     .limit(10)
     .toArray();
 
-  return relatedProducts;
+  return relatedProducts.map(({ _id, ...product }) => product);
 }

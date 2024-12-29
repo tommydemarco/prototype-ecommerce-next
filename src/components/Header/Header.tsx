@@ -44,7 +44,7 @@ export const Header: React.FC = () => {
           </NextLink>
           <div className={styles.navLinks}>
             <Link href="/search">All products</Link>
-            <Link href="/search?price-limit=20">Cheapest</Link>
+            <Link href="/search?max-price=20">Cheapest</Link>
           </div>
         </nav>
         <div className={styles.middleSection}>

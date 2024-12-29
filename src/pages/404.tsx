@@ -13,17 +13,12 @@ const ErrorPage: NextPage<PageProps> = () => {
   return (
     <>
       <Head>
-        <title>{`Error | ${appName}`}</title>
-        <meta
-          name="description"
-          content={
-            "An unexpected error occurred. We're working to resolve it. Please try again later."
-          }
-        />
+        <title>{`Page not found | ${appName}`}</title>
+        <meta name="description" content={"Page not found."} />
       </Head>
       <HtmlContent>
-        <h1>An error occurred</h1>
-        <p>Error: Unable to process your request. Please return later.</p>
+        <h1>404</h1>
+        <p>Page not found</p>
       </HtmlContent>
     </>
   );

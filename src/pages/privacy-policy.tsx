@@ -15,9 +15,7 @@ const PrivacyPolicyPage: NextPage<PageProps> = ({ pageData }) => {
   return (
     <>
       <Head>
-        <title>
-          {pageData.title} | {appName}
-        </title>
+        <title>{`${pageData.title} | ${appName}`}</title>
         <meta name="description" content={pageData.description} />
       </Head>
       <HtmlContent content={pageData.content} />

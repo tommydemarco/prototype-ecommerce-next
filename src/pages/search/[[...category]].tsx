@@ -61,16 +61,16 @@ const SearchPage = () => {
       }
     };
 
-    fetchProducts();
+    if (router.isReady) fetchProducts();
   }, [router.query, router.isReady]);
 
   return (
     <>
       <Head>
-        <title>Search Products | {appName}</title>
+        <title>{`Search products | ${appName}`}</title>
         <meta
           name="description"
-          content={`Search your fevourite products from ${appName}`}
+          content="A prototype e-commerce built for performance benchmarking"
         />
       </Head>
       <SearchGrid

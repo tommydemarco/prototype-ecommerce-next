@@ -27,6 +27,7 @@ export default async function handler(
       });
     });
 
+    res.setHeader("Cache-Control", "no-store");
     res.status(200).json(products);
   } catch (error) {
     console.error("Error fetching products:", error);

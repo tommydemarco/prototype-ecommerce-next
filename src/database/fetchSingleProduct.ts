@@ -11,7 +11,7 @@ export async function fetchProduct(
     productsTableName
   );
 
-  const product = await collection.findOne({ slug });
+  const product = await collection.findOne({ product_slug: slug });
 
   if (product) {
     const { _id, ...cleanedProduct } = product;

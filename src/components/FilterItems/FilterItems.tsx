@@ -38,7 +38,7 @@ const buildHref = (
       )
     : Object.fromEntries(
         Object.entries(currentParams).filter(
-          ([key]) => key !== "price-limit" && key !== "q"
+          ([key]) => key !== "max-price" && key !== "q"
         )
       );
 
@@ -57,7 +57,7 @@ const isActiveItem = (
       filterItem.path === pathnameFilter ||
       (filterItem.path === "" &&
         pathnameFilter === undefined &&
-        !currentParams["price-limit"] &&
+        !currentParams["max-price"] &&
         !currentParams["q"])
     );
   }
@@ -124,21 +124,23 @@ export const FilterItems: React.FC<FilterItemsProps> = ({
         onChange={handleSelectChange}
         title={filterTitle}
         disabled={isLoading}
+        value={isLoading ? "loading" : activeItem?.name || "select-category"}
       >
         {isLoading ? (
-          <option selected disabled>
+          <option disabled value="loading">
             Categories are loading...
           </option>
         ) : (
-          filterItems.map((item) => (
-            <option
-              selected={activeItem?.name === item.name}
-              key={item.name}
-              value={item.name}
-            >
-              {item.name}
+          <>
+            <option value="select-category" disabled>
+              Select a category
             </option>
-          ))
+            {filterItems.map((item) => (
+              <option key={item.name} value={item.name}>
+                {item.name}
+              </option>
+            ))}
+          </>
         )}
       </select>
     </div>
