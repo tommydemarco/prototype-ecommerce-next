@@ -33,16 +33,23 @@ export const ProductDetails: React.FC<ProductDetailsProps> = ({ product }) => {
           <Image
             src={product.images[currentImageIndex]}
             alt={product.name}
-            layout="responsive"
             width={400}
             height={400}
             className={styles.mainImage}
           />
           <div className={styles.controls}>
-            <button className={styles.arrow} onClick={handlePrevImage}>
+            <button
+              aria-label="previous image"
+              className={styles.arrow}
+              onClick={handlePrevImage}
+            >
               &lt;
             </button>
-            <button className={styles.arrow} onClick={handleNextImage}>
+            <button
+              aria-label="next image"
+              className={styles.arrow}
+              onClick={handleNextImage}
+            >
               &gt;
             </button>
           </div>
@@ -59,9 +66,8 @@ export const ProductDetails: React.FC<ProductDetailsProps> = ({ product }) => {
               <Image
                 src={image}
                 alt={`Thumbnail ${index + 1}`}
-                layout="responsive"
-                width={1}
-                height={1}
+                width={400}
+                height={400}
                 className={styles.thumbnail}
               />
             </div>
@@ -70,7 +76,10 @@ export const ProductDetails: React.FC<ProductDetailsProps> = ({ product }) => {
       </div>
       <div className={styles.rightColumn}>
         <h1 className={styles.title}>{product.name}</h1>
-        <HtmlContent content={product.description} />
+        <HtmlContent
+          className={styles.description}
+          content={product.description}
+        />
         <p className={styles.price}>${product.price.toFixed(2)}</p>
         {product.stock_quantity > 0 ? (
           <Button
@@ -79,6 +88,7 @@ export const ProductDetails: React.FC<ProductDetailsProps> = ({ product }) => {
               addProductToCart(product);
               setIsCartOpen(true);
             }}
+            className={styles.addToCart}
           >
             Add to Cart
           </Button>

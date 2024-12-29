@@ -35,7 +35,7 @@ export const CartDrawer: React.FC = () => {
         </div>
         <div className={styles.content}>
           {cartProducts.length ? (
-            <div className={styles.cartContents}>
+            <>
               {cartProducts.map((cartProduct) => {
                 return (
                   <div className={styles.productsContainer}>
@@ -65,7 +65,7 @@ export const CartDrawer: React.FC = () => {
                   Proceed to checkout
                 </Button>
               </div>
-            </div>
+            </>
           ) : (
             <div className={styles.productsContainer}>Your cart is empty</div>
           )}

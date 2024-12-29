@@ -25,7 +25,6 @@ export const ProductCard: React.FC<ProductCardProps> = ({
         <Image
           src={product.images[0]}
           alt={product.name}
-          layout="responsive"
           width={400}
           height={400}
           className={styles.mainImage}

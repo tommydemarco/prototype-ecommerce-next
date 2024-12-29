@@ -27,8 +27,8 @@ export const CartProduct: React.FC<CartProductProps> = ({
         <Image
           src={product.images[0]}
           alt={product.name}
-          width={80}
-          height={80}
+          width={400}
+          height={400}
           className={styles.image}
         />
         <button

@@ -50,10 +50,13 @@
   padding-top: 0.5rem;
   overflow-y: auto;
   color: var(--color-light-2);
+  display: flex;
+  flex-direction: column;
 }
 
 .productsContainer {
   padding: 0.5rem 2rem;
+  flex: 1;
 }
 
 .backdrop {

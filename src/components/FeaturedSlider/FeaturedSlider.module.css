@@ -4,7 +4,7 @@
   gap: 20px;
   width: 100%;
   max-width: 100%;
-  margin: 40px auto;
+  margin: 20px auto;
   overflow: hidden;
 }
 
@@ -13,10 +13,31 @@
   display: flex;
   flex-wrap: nowrap;
   gap: 20px;
-  padding-bottom: 20px;
   scroll-behavior: smooth; /* Ensures smooth scrolling */
 }
 
 .slider > * {
-  min-width: 300px;
+  min-width: 28vw;
+  aspect-ratio: 4/2.5 !important;
+}
+
+@media (max-width: 1199px) {
+  .slider > * {
+    min-width: 38vw;
+    aspect-ratio: 4/2.8 !important;
+  }
+}
+
+@media (max-width: 991px) {
+  .slider > * {
+    min-width: 48vw;
+    aspect-ratio: 4/3 !important;
+  }
+}
+
+@media (max-width: 767px) {
+  .slider > * {
+    min-width: 58vw;
+    aspect-ratio: 4/3.1 !important;
+  }
 }
