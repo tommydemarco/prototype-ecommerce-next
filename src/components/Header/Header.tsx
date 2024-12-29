@@ -131,7 +131,7 @@ export const Header: React.FC = () => {
                 setIsSidebarOpen(false);
                 router.push({
                   pathname: "/search",
-                  query: { "price-limit": 20 },
+                  query: { "max-price": 20 },
                 });
               }}
             >

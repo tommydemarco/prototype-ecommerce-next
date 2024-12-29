@@ -2,22 +2,22 @@ import React from "react";
 import styles from "./HtmlContent.module.css";
 
 interface HtmlContentProps {
-  content: string;
+  content?: string;
+  children?: React.ReactNode;
   className?: string;
 }
 
 export const HtmlContent: React.FC<HtmlContentProps> = ({
+  children,
   content,
   className,
 }) => {
-  if (content) {
-    const classNames = [styles.container, className].filter(Boolean).join(" ");
+  const classNames = [styles.container, className].filter(Boolean).join(" ");
 
-    return (
-      <div
-        dangerouslySetInnerHTML={{ __html: content }}
-        className={classNames}
-      />
-    );
-  } else return null;
+  return (
+    <div className={classNames}>
+      {content && <div dangerouslySetInnerHTML={{ __html: content }}></div>}
+      {children}
+    </div>
+  );
 };
