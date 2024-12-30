@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./FilterItems.module.css";
 import { useRouter } from "next/router";
-import { Link } from "../Link/Link";
+import { NavigationLink } from "../NavigationLink/NavigationLink";
 import { usePathname, useSearchParams } from "next/navigation";
 import { Skeleton } from "../Skeleton/Skeleton";
 
@@ -113,9 +113,9 @@ export const FilterItems: React.FC<FilterItemsProps> = ({
                   activeItem?.name === item.name ? styles.activeItem : ""
                 }
               >
-                <Link href={buildHref(pathname, currentParams, item)}>
+                <NavigationLink href={buildHref(pathname, currentParams, item)}>
                   {item.name}
-                </Link>
+                </NavigationLink>
               </li>
             ))}
       </ul>

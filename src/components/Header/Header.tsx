@@ -3,7 +3,7 @@ import styles from "./Header.module.css";
 import { Button } from "../Button/Button";
 import NextLink from "next/link";
 import { useCart } from "@/store/CartContext";
-import { Link } from "../Link/Link";
+import { NavigationLink } from "../NavigationLink/NavigationLink";
 import { useRouter } from "next/router";
 
 export const Header: React.FC = () => {
@@ -26,7 +26,7 @@ export const Header: React.FC = () => {
   };
 
   return (
-    <>
+    <div>
       <header className={styles.header}>
         <Button
           primary={false}
@@ -43,8 +43,10 @@ export const Header: React.FC = () => {
             Next
           </NextLink>
           <div className={styles.navLinks}>
-            <Link href="/search">All products</Link>
-            <Link href="/search?max-price=20">Cheapest</Link>
+            <NavigationLink href="/search">All products</NavigationLink>
+            <NavigationLink href="/search?max-price=20">
+              Cheapest
+            </NavigationLink>
           </div>
         </nav>
         <div className={styles.middleSection}>
@@ -140,6 +142,6 @@ export const Header: React.FC = () => {
           </div>
         </div>
       </aside>
-    </>
+    </div>
   );
 };

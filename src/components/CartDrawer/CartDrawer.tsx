@@ -18,63 +18,57 @@ export const CartDrawer: React.FC = () => {
   );
 
   return (
-    <>
-      <div
-        className={`${styles.cartDrawer} ${isCartOpen ? styles.open : styles.closed}`}
-      >
-        <div className={styles.header}>
-          <div className={styles.title}>Your cart</div>
-          <Button
-            primary={false}
-            alt-desc="close"
-            className={styles.closeButton}
-            onClick={() => setIsCartOpen(false)}
-          >
-            &times;
-          </Button>
-        </div>
-        <div className={styles.content}>
-          {cartProducts.length ? (
-            <>
-              {cartProducts.map((cartProduct) => {
-                return (
-                  <div className={styles.productsContainer}>
-                    <CartProduct
-                      product={cartProduct}
-                      decrementProductFromCart={decrementProductFromCart}
-                      removeProductFromCart={removeProductFromCart}
-                      key={cartProduct.product_id}
-                    />
-                  </div>
-                );
-              })}
-              <div className={styles.cartInfo}>
-                <div className={styles.infoItem}>
-                  <span>Taxes</span>
-                  <span>Calculated at checkout</span>
-                </div>
-                <div className={styles.infoItem}>
-                  <span>Shipping</span>
-                  <span>Calculated at checkout</span>
-                </div>
-                <div className={styles.infoItem}>
-                  <span>Total</span>
-                  <span>${cartTotal}</span>
-                </div>
-                <Button primary={true} className={styles.checkoutButton}>
-                  Proceed to checkout
-                </Button>
-              </div>
-            </>
-          ) : (
-            <div className={styles.productsContainer}>Your cart is empty</div>
-          )}
-        </div>
+    <div
+      className={`${styles.cartDrawer} ${isCartOpen ? styles.open : styles.closed}`}
+    >
+      <div className={styles.header}>
+        <div className={styles.title}>Your cart</div>
+        <Button
+          primary={false}
+          alt-desc="close"
+          className={styles.closeButton}
+          onClick={() => setIsCartOpen(false)}
+        >
+          &times;
+        </Button>
       </div>
-      <div
-        onClick={() => setIsCartOpen(false)}
-        className={`${styles["backdrop"]} ${isCartOpen ? styles.open : styles.closed}`}
-      ></div>
-    </>
+      <div className={styles.content}>
+        {cartProducts.length ? (
+          <>
+            {cartProducts.map((cartProduct) => {
+              return (
+                <div className={styles.productsContainer}>
+                  <CartProduct
+                    product={cartProduct}
+                    decrementProductFromCart={decrementProductFromCart}
+                    removeProductFromCart={removeProductFromCart}
+                    key={cartProduct.product_id}
+                  />
+                </div>
+              );
+            })}
+            <div className={styles.cartInfo}>
+              <div className={styles.infoItem}>
+                <span>Taxes</span>
+                <span>Calculated at checkout</span>
+              </div>
+              <div className={styles.infoItem}>
+                <span>Shipping</span>
+                <span>Calculated at checkout</span>
+              </div>
+              <div className={styles.infoItem}>
+                <span>Total</span>
+                <span>${cartTotal}</span>
+              </div>
+              <Button primary={true} className={styles.checkoutButton}>
+                Proceed to checkout
+              </Button>
+            </div>
+          </>
+        ) : (
+          <div className={styles.productsContainer}>Your cart is empty</div>
+        )}
+      </div>
+    </div>
   );
 };

@@ -1,11 +1,11 @@
 import NextLink, { LinkProps as NextLinkProps } from "next/link";
-import styles from "./Link.module.css";
+import styles from "./NavigationLink.module.css";
 
-interface LinkProps extends NextLinkProps {
+interface NavigationLinkProps extends NextLinkProps {
   children: React.ReactNode;
 }
 
-export const Link: React.FC<LinkProps> = (props) => {
+export const NavigationLink: React.FC<NavigationLinkProps> = (props) => {
   return (
     <NextLink {...props} className={styles.link}>
       {props.children}
