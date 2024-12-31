@@ -35,18 +35,18 @@ export const CartDrawer: React.FC = () => {
       <div className={styles.content}>
         {cartProducts.length ? (
           <>
-            {cartProducts.map((cartProduct) => {
-              return (
-                <div className={styles.productsContainer}>
+            <div className={styles.productsContainer}>
+              {cartProducts.map((cartProduct) => {
+                return (
                   <CartProduct
                     product={cartProduct}
                     decrementProductFromCart={decrementProductFromCart}
                     removeProductFromCart={removeProductFromCart}
                     key={cartProduct.product_id}
                   />
-                </div>
-              );
-            })}
+                );
+              })}
+            </div>
             <div className={styles.cartInfo}>
               <div className={styles.infoItem}>
                 <span>Taxes</span>

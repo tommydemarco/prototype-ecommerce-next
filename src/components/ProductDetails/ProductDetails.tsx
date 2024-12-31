@@ -39,8 +39,8 @@ export const ProductDetails: React.FC<ProductDetailsProps> = ({ product }) => {
           <Image
             src={productImages[currentImageIndex]}
             alt={product.name}
-            width={400}
-            height={400}
+            width={550}
+            height={550}
             className={styles.mainImage}
           />
           <div className={styles.controls}>
@@ -72,8 +72,8 @@ export const ProductDetails: React.FC<ProductDetailsProps> = ({ product }) => {
               <Image
                 src={image}
                 alt={`Thumbnail ${index + 1}`}
-                width={400}
-                height={400}
+                width={80}
+                height={80}
                 className={styles.thumbnail}
               />
             </div>
