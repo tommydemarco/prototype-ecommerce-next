@@ -1,6 +1,6 @@
 import { StaticPageData } from "@/types";
 import { MongoClient } from "mongodb";
-import { dbName, staticPagesTableName } from ".";
+import { dbName, staticPagesTableName } from "../utils/dbConstants";
 
 export async function fetchStaticPageData(
   client: MongoClient,

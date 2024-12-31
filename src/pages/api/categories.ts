@@ -1,6 +1,6 @@
 import { NextApiRequest, NextApiResponse } from "next";
-import { fetchProductCategories } from "@/database/fetchProductCategories";
-import { withMongoClient } from "@/database/withMongoClient";
+import { fetchProductCategories } from "@/utils/fetchProductCategories";
+import { withMongoClient } from "@/utils/withMongoClient";
 
 export default async function handler(
   req: NextApiRequest,

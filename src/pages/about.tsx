@@ -1,6 +1,6 @@
 import { HtmlContent } from "@/components/HtmlContent/HtmlContent";
-import { fetchStaticPageData } from "@/database/fetchStaticPageData";
-import { withMongoClient } from "@/database/withMongoClient";
+import { fetchStaticPageData } from "@/utils/fetchStaticPageData";
+import { withMongoClient } from "@/utils/withMongoClient";
 import { StaticPageData } from "@/types";
 import { appName } from "@/utils/textConstants";
 import { GetStaticProps, NextPage } from "next";

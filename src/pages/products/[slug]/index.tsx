@@ -1,8 +1,8 @@
 import { ProductDetails } from "@/components/ProductDetails/ProductDetails";
 import { RelatedSlider } from "@/components/RelatedSlider/RelatedSlider";
-import { fetchProduct } from "@/database/fetchSingleProduct";
-import { fetchSuggestedProducts } from "@/database/fetchSuggestedProducts";
-import { withMongoClient } from "@/database/withMongoClient";
+import { fetchProduct } from "@/utils/fetchSingleProduct";
+import { fetchSuggestedProducts } from "@/utils/fetchSuggestedProducts";
+import { withMongoClient } from "@/utils/withMongoClient";
 import { Product } from "@/types";
 import { appName } from "@/utils/textConstants";
 import { GetServerSideProps, NextPage } from "next";
