@@ -26,5 +26,9 @@
     "eslint-plugin-prettier": "^5.2.1",
     "prettier": "^3.4.2",
     "typescript": "^5.7.2"
+  },
+  "engines": {
+    "node": "22.11.0",
+    "npm": "10.9.0"
   }
 }

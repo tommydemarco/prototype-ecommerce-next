@@ -2,7 +2,6 @@ import React from "react";
 import styles from "./CartProduct.module.css";
 import { CartProduct as CartProductType } from "@/types";
 import Image from "next/image";
-import { useCart } from "@/store/CartContext";
 
 interface CartProductProps {
   product: CartProductType;
@@ -21,15 +20,22 @@ export const CartProduct: React.FC<CartProductProps> = ({
     if (product.quantity > 1) decrementProductFromCart(product);
   };
 
+  const productImages = [
+    "/images/garden-trowel-1.webp",
+    "/images/garden-trowel-2.webp",
+    "/images/garden-trowel-3.webp",
+  ]; // product.images
+
   return (
     <div className={styles.container}>
       <div className={styles.imageContainer}>
         <Image
-          src={product.images[0]}
+          src={productImages[0]}
           alt={product.name}
-          width={400}
-          height={400}
+          width={80}
+          height={80}
           className={styles.image}
+          priority={true}
         />
         <button
           name="remove product"

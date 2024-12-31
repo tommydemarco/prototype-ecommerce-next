@@ -7,7 +7,7 @@ export async function fetchProduct(
   slug: string
 ): Promise<Product | null> {
   const db = client.db(dbName);
-  const collection = db.collection<Product & { _id: Object }>(
+  const collection = db.collection<Product & { _id: object }>(
     productsTableName
   );
 

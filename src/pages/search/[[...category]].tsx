@@ -27,7 +27,7 @@ const SearchPage = () => {
         }
         const data = await response.json();
         setCategories(data);
-      } catch (err) {
+      } catch {
         router.push("/_error");
       } finally {
         setIsCategoriesLoading(false);
@@ -54,7 +54,7 @@ const SearchPage = () => {
         }
         const data: Product[] = await response.json();
         setSearchResults(data);
-      } catch (err) {
+      } catch {
         router.push("/_error");
       } finally {
         setIsSearchResultsLoading(false);

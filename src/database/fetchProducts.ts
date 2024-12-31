@@ -14,7 +14,7 @@ export async function fetchProducts(
   queryParams: ProductQueryParams
 ): Promise<Product[]> {
   const db = client.db(dbName);
-  const productCollection = db.collection<Product & { _id: Object }>(
+  const productCollection = db.collection<Product & { _id: object }>(
     productsTableName
   );
 

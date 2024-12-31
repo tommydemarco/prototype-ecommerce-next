@@ -7,7 +7,7 @@ export async function fetchStaticPageData(
   slug: string
 ): Promise<StaticPageData | null> {
   const db = client.db(dbName);
-  const collection = db.collection<StaticPageData & { _id: Object }>(
+  const collection = db.collection<StaticPageData & { _id: object }>(
     staticPagesTableName
   );
 

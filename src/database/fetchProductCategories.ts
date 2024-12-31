@@ -6,7 +6,7 @@ export async function fetchProductCategories(
   client: MongoClient
 ): Promise<Category[]> {
   const db = client.db(dbName);
-  const collection = db.collection<Category & { _id: Object }>(
+  const collection = db.collection<Category & { _id: object }>(
     categoriesTableName
   );
 

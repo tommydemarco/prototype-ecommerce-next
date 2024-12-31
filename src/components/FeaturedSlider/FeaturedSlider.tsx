@@ -2,7 +2,6 @@ import React, { useEffect, useRef } from "react";
 import styles from "./FeaturedSlider.module.css";
 import { Product } from "@/types";
 import { ProductCard } from "../ProductCard/ProductCard";
-import { useRouter } from "next/router";
 
 interface FeaturedSliderProps {
   products: Product[];
@@ -13,43 +12,43 @@ export const FeaturedSlider: React.FC<FeaturedSliderProps> = ({ products }) => {
   const animationRef = useRef<number | null>(null);
   const isHoveredRef = useRef(false);
 
-  //   useEffect(() => {
-  //     const slider = sliderRef.current;
-  //     if (!slider) return;
+  useEffect(() => {
+    const slider = sliderRef.current;
+    if (!slider) return;
 
-  //     let scrollDirection = 1;
-  //     const speed = 8;
+    let scrollDirection = 1;
+    const speed = 8;
 
-  //     const animateScroll = () => {
-  //       if (!isHoveredRef.current) {
-  //         if (slider.scrollLeft + slider.offsetWidth >= slider.scrollWidth) {
-  //           scrollDirection = -1;
-  //         } else if (slider.scrollLeft <= 0) {
-  //           scrollDirection = 1;
-  //         }
+    const animateScroll = () => {
+      if (!isHoveredRef.current) {
+        if (slider.scrollLeft + slider.offsetWidth >= slider.scrollWidth) {
+          scrollDirection = -1;
+        } else if (slider.scrollLeft <= 0) {
+          scrollDirection = 1;
+        }
 
-  //         slider.scrollLeft += scrollDirection * speed;
-  //       }
-  //       animationRef.current = requestAnimationFrame(animateScroll);
-  //     };
+        slider.scrollLeft += scrollDirection * speed;
+      }
+      animationRef.current = requestAnimationFrame(animateScroll);
+    };
 
-  //     animationRef.current = requestAnimationFrame(animateScroll);
+    animationRef.current = requestAnimationFrame(animateScroll);
 
-  //     const stopAnimation = () => (isHoveredRef.current = true);
+    const stopAnimation = () => (isHoveredRef.current = true);
 
-  //     const startAnimation = () => (isHoveredRef.current = false);
+    const startAnimation = () => (isHoveredRef.current = false);
 
-  //     slider.addEventListener("mouseenter", stopAnimation);
-  //     slider.addEventListener("mouseleave", startAnimation);
+    slider.addEventListener("mouseenter", stopAnimation);
+    slider.addEventListener("mouseleave", startAnimation);
 
-  //     return () => {
-  //       if (animationRef.current) {
-  //         cancelAnimationFrame(animationRef.current);
-  //       }
-  //       slider.removeEventListener("mouseenter", stopAnimation);
-  //       slider.removeEventListener("mouseleave", startAnimation);
-  //     };
-  //   }, []);
+    return () => {
+      if (animationRef.current) {
+        cancelAnimationFrame(animationRef.current);
+      }
+      slider.removeEventListener("mouseenter", stopAnimation);
+      slider.removeEventListener("mouseleave", startAnimation);
+    };
+  }, []);
 
   return (
     <div className={styles.container}>
