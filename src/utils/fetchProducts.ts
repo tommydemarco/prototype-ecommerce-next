@@ -1,6 +1,10 @@
 import { MongoClient } from "mongodb";
 import { Category, Product } from "@/types";
-import { categoriesTableName, dbName, productsTableName } from ".";
+import {
+  categoriesTableName,
+  dbName,
+  productsTableName,
+} from "../utils/dbConstants";
 
 export interface ProductQueryParams {
   category?: string;

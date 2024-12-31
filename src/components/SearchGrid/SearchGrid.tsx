@@ -21,6 +21,8 @@ export const SearchGrid: React.FC<SearchGridProps> = ({
   const searchParams = useSearchParams();
   const currentParams = Object.fromEntries(searchParams.entries());
   const querySearchParam = currentParams?.["q"];
+  const maxPriceSearchParam = currentParams?.["max-price"];
+
   return (
     <div className={styles.container}>
       <div className={styles.categoriesColumn}>{categories}</div>
@@ -28,6 +30,12 @@ export const SearchGrid: React.FC<SearchGridProps> = ({
         {querySearchParam !== undefined && (
           <div>
             Displaying search results for: <strong>{querySearchParam}</strong>
+          </div>
+        )}
+        {maxPriceSearchParam !== undefined && (
+          <div>
+            Displaying products with a maximum price of{" "}
+            <strong>${maxPriceSearchParam}</strong>
           </div>
         )}
         <div className={styles.productsContainer}>
@@ -50,10 +58,15 @@ export const SearchGrid: React.FC<SearchGridProps> = ({
               Your search{" "}
               {querySearchParam !== undefined && (
                 <span>
-                  for <strong>{querySearchParam}</strong>
+                  for <strong>{querySearchParam}</strong>{" "}
                 </span>
-              )}{" "}
-              did not yeald any results.
+              )}
+              {maxPriceSearchParam !== undefined && (
+                <span>
+                  with a price limit of <strong>${maxPriceSearchParam}</strong>{" "}
+                </span>
+              )}
+              did not yield any results.
             </div>
           )}
         </div>

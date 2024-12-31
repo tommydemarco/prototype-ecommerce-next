@@ -1,7 +1,7 @@
 import { FeaturedSlider } from "@/components/FeaturedSlider/FeaturedSlider";
 import { HightlightedHero } from "@/components/HightlightedHero/HightlightedHero";
-import { fetchFeaturedProducts } from "@/database/fetchFeaturedProducts";
-import { withMongoClient } from "@/database/withMongoClient";
+import { fetchFeaturedProducts } from "@/utils/fetchFeaturedProducts";
+import { withMongoClient } from "@/utils/withMongoClient";
 import { Product } from "@/types";
 import { appName } from "@/utils/textConstants";
 import { GetStaticProps, NextPage } from "next";
