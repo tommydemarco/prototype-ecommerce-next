@@ -1,6 +1,6 @@
 import React from "react";
 import { useCart } from "@/store/CartContext";
-import { Button } from "../Button/Button";
+import { ButtonElement } from "../ButtonElement/ButtonElement";
 import styles from "./CartDrawer.module.css";
 import { CartProduct } from "../CartProduct/CartProduct";
 
@@ -23,14 +23,14 @@ export const CartDrawer: React.FC = () => {
     >
       <div className={styles.header}>
         <div className={styles.title}>Your cart</div>
-        <Button
+        <ButtonElement
           primary={false}
           alt-desc="close"
           className={styles.closeButton}
           onClick={() => setIsCartOpen(false)}
         >
           &times;
-        </Button>
+        </ButtonElement>
       </div>
       <div className={styles.content}>
         {cartProducts.length ? (
@@ -60,9 +60,9 @@ export const CartDrawer: React.FC = () => {
                 <span>Total</span>
                 <span>${cartTotal?.toFixed(2)}</span>
               </div>
-              <Button primary={true} className={styles.checkoutButton}>
+              <ButtonElement primary={true} className={styles.checkoutButton}>
                 Proceed to checkout
-              </Button>
+              </ButtonElement>
             </div>
           </>
         ) : (

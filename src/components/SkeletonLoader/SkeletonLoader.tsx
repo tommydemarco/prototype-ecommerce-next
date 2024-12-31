@@ -1,13 +1,13 @@
 import React from "react";
-import styles from "./Skeleton.module.css";
+import styles from "./SkeletonLoader.module.css";
 
-type SkeletonProps = {
-  width?: number; // Aspect ratio width (optional)
-  height: number; // Aspect ratio height or explicit height in pixels
-  className?: string; // Optional additional class names
+type SkeletonLoaderProps = {
+  width?: number;
+  height: number;
+  className?: string;
 };
 
-export const Skeleton: React.FC<SkeletonProps> = ({
+export const SkeletonLoader: React.FC<SkeletonLoaderProps> = ({
   width,
   height,
   className,
@@ -18,7 +18,7 @@ export const Skeleton: React.FC<SkeletonProps> = ({
       : { height: `${height}px`, width: "100%" };
 
   return (
-    <div className={`${styles.skeleton} ${className || ""}`}>
+    <div className={`${styles.skeletonLoader} ${className || ""}`}>
       <div className={styles.aspectWrapper} style={style}>
         <div className={styles.content}></div>
       </div>

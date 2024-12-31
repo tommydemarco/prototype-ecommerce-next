@@ -1,8 +1,8 @@
 import { CartDrawer } from "@/components/CartDrawer/CartDrawer";
-import { Footer } from "@/components/Footer/Footer";
-import { Header } from "@/components/Header/Header";
+import { FooterElement } from "@/components/FooterElement/FooterElement";
+import { HeaderElement } from "@/components/HeaderElement/HeaderElement";
+import { BackdropLayer } from "@/components/BackdropLayer/BackdropLayer";
 import styles from "./MainLayout.module.css";
-import { Backdrop } from "@/components/Backdrop/Backdrop";
 
 interface MainLayoutProps {
   children: React.ReactNode;
@@ -11,11 +11,11 @@ interface MainLayoutProps {
 export const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
   return (
     <div className={styles.container}>
-      <Header />
+      <HeaderElement />
       <main className={styles.main}>{children}</main>
       <CartDrawer />
-      <Backdrop />
-      <Footer />
+      <BackdropLayer />
+      <FooterElement />
     </div>
   );
 };

@@ -1,7 +1,7 @@
 import React from "react";
-import styles from "./Button.module.css";
+import styles from "./ButtonElementProps.module.css";
 
-interface ButtonProps {
+interface ButtonElementProps {
   onClick?: () => void;
   primary: boolean;
   className?: string;
@@ -10,7 +10,7 @@ interface ButtonProps {
   ariaLabel?: string;
 }
 
-export const Button: React.FC<ButtonProps> = ({
+export const ButtonElement: React.FC<ButtonElementProps> = ({
   ariaLabel,
   onClick,
   primary,
@@ -19,7 +19,7 @@ export const Button: React.FC<ButtonProps> = ({
   badge,
 }) => {
   const buttonClass = [
-    styles.button,
+    styles.buttonElement,
     primary ? styles.primaryButton : styles.secondaryButton,
     className,
   ]

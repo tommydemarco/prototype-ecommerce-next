@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Image from "next/image";
 import styles from "./ProductDetails.module.css";
 import { Product } from "@/types";
-import { Button } from "../Button/Button";
+import { ButtonElement } from "../ButtonElement/ButtonElement";
 import { HtmlContent } from "../HtmlContent/HtmlContent";
 import { useCart } from "@/store/CartContext";
 
@@ -89,7 +89,7 @@ export const ProductDetails: React.FC<ProductDetailsProps> = ({ product }) => {
         />
         <p className={styles.price}>${product.price.toFixed(2)}</p>
         {product.stock_quantity > 0 ? (
-          <Button
+          <ButtonElement
             primary
             onClick={() => {
               addProductToCart(product);
@@ -98,7 +98,7 @@ export const ProductDetails: React.FC<ProductDetailsProps> = ({ product }) => {
             className={styles.addToCart}
           >
             Add to Cart
-          </Button>
+          </ButtonElement>
         ) : (
           <p>This item is currently out of stock</p>
         )}

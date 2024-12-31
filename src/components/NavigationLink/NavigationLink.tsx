@@ -7,7 +7,7 @@ interface NavigationLinkProps extends NextLinkProps {
 
 export const NavigationLink: React.FC<NavigationLinkProps> = (props) => {
   return (
-    <NextLink {...props} className={styles.link}>
+    <NextLink {...props} className={styles.navigationLink}>
       {props.children}
     </NextLink>
   );
