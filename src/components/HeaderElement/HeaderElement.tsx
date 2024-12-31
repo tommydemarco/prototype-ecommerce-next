@@ -18,10 +18,15 @@ export const HeaderElement: React.FC = () => {
   );
 
   const handleSearch = () => {
-    router.push({
-      pathname: `/search`,
-      query: { q: searchValue },
-    });
+    const cleanedSearchValue = searchValue.trim();
+    if (cleanedSearchValue !== "") {
+      router.push({
+        pathname: `/search`,
+        query: { q: searchValue },
+      });
+    } else {
+      router.push("/search");
+    }
     setSearchValue("");
   };
 
