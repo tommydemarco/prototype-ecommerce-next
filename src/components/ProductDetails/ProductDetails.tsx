@@ -42,6 +42,7 @@ export const ProductDetails: React.FC<ProductDetailsProps> = ({ product }) => {
             width={550}
             height={550}
             className={styles.mainImage}
+            priority={true}
           />
           <div className={styles.controls}>
             <button

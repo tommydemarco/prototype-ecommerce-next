@@ -35,7 +35,6 @@ export const CartProduct: React.FC<CartProductProps> = ({
           width={80}
           height={80}
           className={styles.image}
-          priority={true}
         />
         <button
           name="remove product"

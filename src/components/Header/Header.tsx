@@ -79,7 +79,6 @@ export const Header: React.FC = () => {
         </div>
       </header>
       <aside
-        aria-hidden={!isSidebarOpen}
         className={`${styles.headerSidebar} ${isSidebarOpen ? styles.open : styles.closed}`}
       >
         <div className={styles.headerSidebarElement}>
