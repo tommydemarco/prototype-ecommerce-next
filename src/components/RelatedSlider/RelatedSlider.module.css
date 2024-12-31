@@ -1,0 +1,26 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: var(--content-width);
+  max-width: var(--max-content-width);
+  margin: 40px auto;
+  overflow: hidden;
+}
+
+.title {
+  font-weight: bold;
+  font-size: 1.9rem;
+}
+
+.slider {
+  overflow: scroll;
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 20px;
+  padding-bottom: 20px;
+}
+
+.slider > * {
+  min-width: 300px;
+}

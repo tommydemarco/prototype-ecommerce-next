@@ -1,0 +1,118 @@
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  width: var(--content-width);
+  max-width: var(--max-content-width);
+  margin: 0 auto;
+}
+
+.leftColumn {
+  flex: 1;
+  max-width: 550px;
+  margin: 0 auto;
+}
+
+.rightColumn {
+  flex: 1;
+  min-width: 300px;
+}
+
+.description.description {
+  width: 100%;
+}
+
+.imageContainer {
+  position: relative;
+}
+
+.mainImage {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  background-color: var(--color-dark-1);
+}
+
+.controls {
+  display: flex;
+  justify-content: space-between;
+  position: absolute;
+  bottom: -20px;
+  width: 100%;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.arrow {
+  background: var(--color-dark-1);
+  color: var(--color-light-1);
+  border: 1px solid var(--color-dark-2);
+  padding: 15px 20px;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: var(--border-radius);
+}
+
+.thumbnails {
+  display: flex;
+  justify-content: center;
+  margin-top: 15px;
+  gap: 10px;
+}
+
+.thumbnailContainer {
+  width: 80px;
+  height: 80px;
+  cursor: pointer;
+  border: 2px solid transparent;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.thumbnail {
+  width: 100%;
+  height: auto;
+  border-radius: 1px;
+}
+
+.activeThumbnail {
+  border-color: var(--color-primary);
+}
+
+.title {
+  font-size: 2.2rem;
+  color: var(--color-light-1);
+  margin-bottom: 1.5rem;
+}
+
+.price {
+  font-size: 1.5rem;
+  color: var(--color-light-1);
+  font-weight: bold;
+}
+
+.quantity {
+  font-size: 1rem;
+  color: var(--color-light-2);
+}
+
+.addToCart.addToCart {
+  margin-top: 20px;
+  min-width: 200px;
+  padding: 12px;
+}
+
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .controls {
+    padding: 0;
+  }
+
+  .thumbnailContainer {
+    width: 60px;
+    height: 60px;
+  }
+}
