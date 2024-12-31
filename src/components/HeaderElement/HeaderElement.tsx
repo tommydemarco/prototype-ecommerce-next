@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import styles from "./Header.module.css";
-import { Button } from "../Button/Button";
+import styles from "./HeaderElement.module.css";
+import { ButtonElement } from "../ButtonElement/ButtonElement";
 import NextLink from "next/link";
 import { useCart } from "@/store/CartContext";
 import { NavigationLink } from "../NavigationLink/NavigationLink";
 import { useRouter } from "next/router";
 
-export const Header: React.FC = () => {
+export const HeaderElement: React.FC = () => {
   const router = useRouter();
   const { cartProducts, setIsCartOpen } = useCart();
   const [searchValue, setSearchValue] = useState("");
@@ -27,8 +27,8 @@ export const Header: React.FC = () => {
 
   return (
     <div>
-      <header className={styles.header}>
-        <Button
+      <header className={styles.headerElement}>
+        <ButtonElement
           primary={false}
           ariaLabel="Toggle menu"
           className={styles.burgerMenu}
@@ -37,7 +37,7 @@ export const Header: React.FC = () => {
           <span>&#9472;</span>
           <span>&#9472;</span>
           <span>&#9472;</span>
-        </Button>
+        </ButtonElement>
         <nav className={styles.leftSection}>
           <NextLink href="/" className={styles.logo}>
             Next
@@ -58,38 +58,37 @@ export const Header: React.FC = () => {
               value={searchValue}
               onChange={(e) => setSearchValue(e.target.value)}
             />
-            <Button
+            <ButtonElement
               primary={false}
               className={styles.searchButton}
               onClick={handleSearch}
             >
               Go
-            </Button>
+            </ButtonElement>
           </div>
         </div>
         <div className={styles.rightSection}>
-          <Button
+          <ButtonElement
             primary
             badge={itemsInCart}
             onClick={() => setIsCartOpen(true)}
-            className={styles.button}
           >
             Cart
-          </Button>
+          </ButtonElement>
         </div>
       </header>
       <aside
         className={`${styles.headerSidebar} ${isSidebarOpen ? styles.open : styles.closed}`}
       >
         <div className={styles.headerSidebarElement}>
-          <Button
+          <ButtonElement
             primary={false}
             ariaLabel="Close menu"
             className={styles.closeButton}
             onClick={() => setIsSidebarOpen(false)}
           >
             &times;
-          </Button>
+          </ButtonElement>
           <div className={styles.title}>Menu</div>
         </div>
         <div className={styles.content}>
@@ -101,7 +100,7 @@ export const Header: React.FC = () => {
               value={searchValue}
               onChange={(e) => setSearchValue(e.target.value)}
             />
-            <Button
+            <ButtonElement
               primary={false}
               className={styles.searchButton}
               onClick={() => {
@@ -110,10 +109,10 @@ export const Header: React.FC = () => {
               }}
             >
               Go
-            </Button>
+            </ButtonElement>
           </div>
           <div className={styles.sidebarNav}>
-            <Button
+            <ButtonElement
               primary={false}
               className={styles.sidebarButton}
               onClick={() => {
@@ -124,8 +123,8 @@ export const Header: React.FC = () => {
               }}
             >
               All products
-            </Button>
-            <Button
+            </ButtonElement>
+            <ButtonElement
               primary={false}
               className={styles.sidebarButton}
               onClick={() => {
@@ -137,7 +136,7 @@ export const Header: React.FC = () => {
               }}
             >
               Cheapest
-            </Button>
+            </ButtonElement>
           </div>
         </div>
       </aside>

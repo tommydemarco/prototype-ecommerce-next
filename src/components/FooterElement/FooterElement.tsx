@@ -1,10 +1,10 @@
 import { NavigationLink } from "../NavigationLink/NavigationLink";
-import { Button } from "../Button/Button";
-import styles from "./Footer.module.css";
+import { ButtonElement } from "../ButtonElement/ButtonElement";
+import styles from "./FooterElement.module.css";
 
-export const Footer: React.FC = () => {
+export const FooterElement: React.FC = () => {
   return (
-    <footer className={styles.footer}>
+    <footer className={styles.footerElement}>
       <div className={styles.container}>
         <div className={styles.topSection}>
           <div className={styles.logo}>Next</div>
@@ -22,13 +22,13 @@ export const Footer: React.FC = () => {
               FAQ
             </NavigationLink>
           </div>
-          <Button
+          <ButtonElement
             primary={false}
             className={styles.backToTop}
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
           >
             Back to Top
-          </Button>
+          </ButtonElement>
         </div>
         <div className={styles.bottomSection}>
           <p>

@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./SearchGrid.module.css";
 import { Product } from "@/types";
 import { ProductCard } from "../ProductCard/ProductCard";
-import { Skeleton } from "../Skeleton/Skeleton";
+import { SkeletonLoader } from "../SkeletonLoader/SkeletonLoader";
 import { useSearchParams } from "next/navigation";
 
 interface SearchGridProps {
@@ -41,7 +41,7 @@ export const SearchGrid: React.FC<SearchGridProps> = ({
         <div className={styles.productsContainer}>
           {isLoading ? (
             [1, 2, 3, 4, 5, 6].map((number) => (
-              <Skeleton key={number} width={1} height={1} />
+              <SkeletonLoader key={number} width={1} height={1} />
             ))
           ) : searchResults.length > 0 ? (
             searchResults.map((product) => {
