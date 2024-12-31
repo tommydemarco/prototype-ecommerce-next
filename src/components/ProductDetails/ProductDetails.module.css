@@ -9,6 +9,7 @@
 
 .leftColumn {
   flex: 1;
+  width: 100%;
   max-width: 550px;
   margin: 0 auto;
 }
