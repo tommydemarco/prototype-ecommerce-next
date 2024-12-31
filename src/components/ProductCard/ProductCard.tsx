@@ -8,12 +8,14 @@ interface ProductCardProps {
   product: Product;
   layoutType: "square" | "rectangular";
   className?: string;
+  priorityImage?: boolean;
 }
 
 export const ProductCard: React.FC<ProductCardProps> = ({
   className,
   product,
   layoutType,
+  priorityImage,
 }) => {
   return (
     <Link
@@ -29,6 +31,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({
           width={400}
           height={400}
           className={styles.mainImage}
+          priority={!!priorityImage}
         />
       </div>
       <div className={styles.info}>
