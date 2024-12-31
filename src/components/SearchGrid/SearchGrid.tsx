@@ -44,12 +44,13 @@ export const SearchGrid: React.FC<SearchGridProps> = ({
               <SkeletonLoader key={number} width={1} height={1} />
             ))
           ) : searchResults.length > 0 ? (
-            searchResults.map((product) => {
+            searchResults.map((product, index) => {
               return (
                 <ProductCard
                   layoutType="square"
                   key={product.product_id}
                   product={product}
+                  priorityImage={index === 0 ? true : false}
                 />
               );
             })
