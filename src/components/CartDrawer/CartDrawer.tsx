@@ -58,7 +58,7 @@ export const CartDrawer: React.FC = () => {
               </div>
               <div className={styles.infoItem}>
                 <span>Total</span>
-                <span>${cartTotal}</span>
+                <span>${cartTotal?.toFixed(2)}</span>
               </div>
               <Button primary={true} className={styles.checkoutButton}>
                 Proceed to checkout
