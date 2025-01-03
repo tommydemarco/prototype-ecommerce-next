@@ -17,60 +17,6 @@ type FilterItemsProps = {
   isLoading?: boolean;
 };
 
-const buildHref = (
-  basePath: string | null,
-  currentParams: Record<string, string>,
-  filterItem: FilterItem
-) => {
-  const resolvedPathname =
-    filterItem.path !== undefined
-      ? filterItem.path
-        ? `/search/${filterItem.path}`
-        : "/search"
-      : basePath;
-
-  const query = filterItem.query
-    ? Object.fromEntries(
-        Object.entries({
-          ...currentParams,
-          ...filterItem.query,
-        }).filter(([_, value]) => value !== undefined)
-      )
-    : Object.fromEntries(
-        Object.entries(currentParams).filter(
-          ([key]) => key !== "max-price" && key !== "q"
-        )
-      );
-
-  return { pathname: resolvedPathname, query };
-};
-
-const isActiveItem = (
-  filterItem: FilterItem,
-  pathname: string | null,
-  currentParams: Record<string, string>
-) => {
-  const pathnameFilter = pathname?.split("/")[2];
-
-  if (filterItem.path !== undefined) {
-    return (
-      filterItem.path === pathnameFilter ||
-      (filterItem.path === "" &&
-        pathnameFilter === undefined &&
-        !currentParams["max-price"] &&
-        !currentParams["q"])
-    );
-  }
-
-  if (filterItem.query) {
-    return Object.entries(filterItem.query).every(
-      ([key, value]) => currentParams[key] === value
-    );
-  }
-
-  return false;
-};
-
 export const FilterItems: React.FC<FilterItemsProps> = ({
   isLoading,
   filterTitle,
@@ -80,6 +26,56 @@ export const FilterItems: React.FC<FilterItemsProps> = ({
   const pathname = usePathname();
   const searchParams = useSearchParams();
   const currentParams = Object.fromEntries(searchParams.entries());
+
+  const buildHref = (basePath: string | null, filterItem: FilterItem) => {
+    const resolvedPathname =
+      filterItem.path !== undefined
+        ? filterItem.path
+          ? `/search/${filterItem.path}`
+          : "/search"
+        : basePath;
+
+    const query = filterItem.query
+      ? Object.fromEntries(
+          Object.entries({
+            ...currentParams,
+            ...filterItem.query,
+          }).filter(([_, value]) => value !== undefined)
+        )
+      : Object.fromEntries(
+          Object.entries(currentParams).filter(
+            ([key]) => key !== "max-price" && key !== "q"
+          )
+        );
+
+    return { pathname: resolvedPathname, query };
+  };
+
+  const isActiveItem = (
+    filterItem: FilterItem,
+    pathname: string | null,
+    currentParams: Record<string, string>
+  ) => {
+    const pathnameFilter = pathname?.split("/")[2];
+
+    if (filterItem.path !== undefined) {
+      return (
+        filterItem.path === pathnameFilter ||
+        (filterItem.path === "" &&
+          pathnameFilter === undefined &&
+          !currentParams["max-price"] &&
+          !currentParams["q"])
+      );
+    }
+
+    if (filterItem.query) {
+      return Object.entries(filterItem.query).every(
+        ([key, value]) => currentParams[key] === value
+      );
+    }
+
+    return false;
+  };
 
   const activeItem = filterItems.find((item) =>
     isActiveItem(item, pathname, currentParams)
@@ -93,7 +89,6 @@ export const FilterItems: React.FC<FilterItemsProps> = ({
     if (selectedItem) {
       const { pathname: resolvedPathname, query } = buildHref(
         pathname,
-        currentParams,
         selectedItem
       );
       router.push({ pathname: resolvedPathname, query });
@@ -115,7 +110,7 @@ export const FilterItems: React.FC<FilterItemsProps> = ({
                   activeItem?.name === item.name ? styles.activeItem : ""
                 }
               >
-                <NavigationLink href={buildHref(pathname, currentParams, item)}>
+                <NavigationLink href={buildHref(pathname, item)}>
                   {item.name}
                 </NavigationLink>
               </li>
