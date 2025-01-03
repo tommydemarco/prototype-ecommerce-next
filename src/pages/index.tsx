@@ -3,7 +3,7 @@ import { HightlightedHero } from "@/components/HightlightedHero/HightlightedHero
 import { fetchFeaturedProducts } from "@/utils/fetchFeaturedProducts";
 import { withMongoClient } from "@/utils/withMongoClient";
 import { Product } from "@/types";
-import { appName } from "@/utils/textConstants";
+import { appDescription, appName } from "@/utils/textConstants";
 import { GetStaticProps, NextPage } from "next";
 import Head from "next/head";
 
@@ -20,10 +20,7 @@ const HomePage: NextPage<PageProps> = ({
     <>
       <Head>
         <title>{appName}</title>
-        <meta
-          name="description"
-          content="A prototype e-commerce built for performance benchmarking"
-        />
+        <meta name="description" content={appDescription} />
       </Head>
       <HightlightedHero
         mainHighlighted={highlightedProducts[0]}

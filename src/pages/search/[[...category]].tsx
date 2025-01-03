@@ -2,7 +2,7 @@ import { FilterItems } from "@/components/FilterItems/FilterItems";
 import { SearchGrid } from "@/components/SearchGrid/SearchGrid";
 import { Category, Product } from "@/types";
 import { sortingParams } from "@/utils/sortingParams";
-import { appName } from "@/utils/textConstants";
+import { appDescription, appName } from "@/utils/textConstants";
 import Head from "next/head";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
@@ -68,10 +68,7 @@ const SearchPage = () => {
     <>
       <Head>
         <title>{`Search products | ${appName}`}</title>
-        <meta
-          name="description"
-          content="A prototype e-commerce built for performance benchmarking"
-        />
+        <meta name="description" content={appDescription} />
       </Head>
       <SearchGrid
         isLoading={isSearchResultsLoading}

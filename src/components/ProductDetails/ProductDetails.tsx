@@ -14,11 +14,7 @@ export const ProductDetails: React.FC<ProductDetailsProps> = ({ product }) => {
   const { addProductToCart, setIsCartOpen } = useCart();
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
-  const productImages = [
-    "/images/garden-trowel-1.webp",
-    "/images/garden-trowel-2.webp",
-    "/images/garden-trowel-3.webp",
-  ]; // product.images
+  const productImages = product.images;
 
   const handlePrevImage = () => {
     setCurrentImageIndex((prevIndex) =>

@@ -20,11 +20,7 @@ export const CartProduct: React.FC<CartProductProps> = ({
     if (product.quantity > 1) decrementProductFromCart(product);
   };
 
-  const productImages = [
-    "/images/garden-trowel-1.webp",
-    "/images/garden-trowel-2.webp",
-    "/images/garden-trowel-3.webp",
-  ]; // product.images
+  const productImages = product.images;
 
   return (
     <div className={styles.container}>
