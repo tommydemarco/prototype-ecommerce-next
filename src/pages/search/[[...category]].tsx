@@ -55,7 +55,7 @@ const SearchPage = () => {
         const data: Product[] = await response.json();
         setSearchResults(data);
       } catch {
-        router.push("/_error");
+        setSearchResults([]);
       } finally {
         setIsSearchResultsLoading(false);
       }
