@@ -16,8 +16,6 @@ interface PageProps {
 export const getServerSideProps: GetServerSideProps<PageProps> = async (
   context
 ) => {
-  context.res.setHeader("Cache-Control", "no-store");
-
   const { slug } = context.params!;
 
   const { productData, suggestedProducts } = await withMongoClient(
