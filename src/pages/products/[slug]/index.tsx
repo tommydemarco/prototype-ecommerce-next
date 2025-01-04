@@ -16,26 +16,24 @@ interface PageProps {
 export const getServerSideProps: GetServerSideProps<PageProps> = async (
   context
 ) => {
-  context.res.setHeader("Cache-Control", "no-store");
-
   const { slug } = context.params!;
 
-  const { productData, suggestedProducts } = await withMongoClient(
+  const { product, suggestedProducts } = await withMongoClient(
     async (client) => {
-      const productData = await fetchProduct(client, slug as string);
+      const product = await fetchProduct(client, slug as string);
       const suggestedProducts = await fetchSuggestedProducts(
         client,
         slug as string
       );
-      return { productData, suggestedProducts };
+      return { product, suggestedProducts };
     }
   );
 
-  if (!productData) return { notFound: true };
+  if (!product) return { notFound: true };
 
   return {
     props: {
-      product: productData,
+      product: product,
       suggestedProducts: suggestedProducts,
     },
   };
@@ -48,8 +46,13 @@ const ProductPage: NextPage<PageProps> = ({ product, suggestedProducts }) => {
         <title>{`${product.name} | ${appName}`}</title>
         <meta name="description" content={product.description} />
       </Head>
-      <ProductDetails product={product} />
-      <RelatedSlider title="Suggested products" products={suggestedProducts} />
+      <div>
+        <ProductDetails product={product} />
+        <RelatedSlider
+          title="Suggested products"
+          products={suggestedProducts}
+        />
+      </div>
     </>
   );
 };

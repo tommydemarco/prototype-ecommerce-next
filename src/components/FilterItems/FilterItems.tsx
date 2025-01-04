@@ -101,7 +101,7 @@ export const FilterItems: React.FC<FilterItemsProps> = ({
       <ul className={styles.desktopList}>
         {isLoading
           ? [1, 2, 3, 4].map((number) => (
-              <SkeletonLoader height={20} key={number} />
+              <SkeletonLoader height={18} key={number} />
             ))
           : filterItems.map((item) => (
               <li

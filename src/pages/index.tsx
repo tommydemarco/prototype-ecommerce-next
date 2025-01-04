@@ -22,11 +22,16 @@ const HomePage: NextPage<PageProps> = ({
         <title>{appName}</title>
         <meta name="description" content={appDescription} />
       </Head>
-      <HightlightedHero
-        mainHighlighted={highlightedProducts[0]}
-        secondaryHighlighted={[highlightedProducts[1], highlightedProducts[2]]}
-      />
-      <FeaturedSlider products={featuredProducts} />
+      <div>
+        <HightlightedHero
+          mainHighlighted={highlightedProducts[0]}
+          secondaryHighlighted={[
+            highlightedProducts[1],
+            highlightedProducts[2],
+          ]}
+        />
+        <FeaturedSlider products={featuredProducts} />
+      </div>
     </>
   );
 };
@@ -34,17 +39,17 @@ const HomePage: NextPage<PageProps> = ({
 export default HomePage;
 
 export const getStaticProps: GetStaticProps<PageProps> = async () => {
-  const featuredProducts = await withMongoClient(async (client) => {
+  const featuredProductsData = await withMongoClient(async (client) => {
     return await fetchFeaturedProducts(client);
   });
 
-  const featuredHighlighted = featuredProducts.slice(0, 3);
-  const featured = featuredProducts.slice(3);
+  const highlightedProducts = featuredProductsData.slice(0, 3);
+  const featuredProducts = featuredProductsData.slice(3);
 
   return {
     props: {
-      highlightedProducts: featuredHighlighted,
-      featuredProducts: featured,
+      highlightedProducts: highlightedProducts,
+      featuredProducts: featuredProducts,
     },
   };
 };
