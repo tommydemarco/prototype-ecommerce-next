@@ -38,6 +38,7 @@ export const ProductDetails: React.FC<ProductDetailsProps> = ({ product }) => {
             width={550}
             height={550}
             className={styles.mainImage}
+            loading="eager"
             priority={true}
           />
           <div className={styles.controls}>
@@ -72,6 +73,7 @@ export const ProductDetails: React.FC<ProductDetailsProps> = ({ product }) => {
                 width={80}
                 height={80}
                 className={styles.thumbnail}
+                loading="lazy"
               />
             </div>
           ))}
