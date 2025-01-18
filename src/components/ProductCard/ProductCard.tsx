@@ -30,6 +30,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({
           width={400}
           height={400}
           className={styles.mainImage}
+          loading={!!priorityImage ? "eager" : "lazy"}
           priority={!!priorityImage}
         />
       </div>
