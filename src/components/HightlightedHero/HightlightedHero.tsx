@@ -19,6 +19,7 @@ export const HightlightedHero: React.FC<HightlightedHeroProps> = ({
           className={styles.mainHighlighted}
           layoutType="rectangular"
           product={mainHighlighted}
+          priorityImage={true}
         />
       </div>
       <div className={styles.rightColumn}>
