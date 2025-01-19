@@ -25,6 +25,7 @@ export const getServerSideProps: GetServerSideProps<PageProps> = async (
         client,
         slug as string
       );
+      console.log("Fetching product data");
       return { product, suggestedProducts };
     }
   );
