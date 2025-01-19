@@ -23,12 +23,13 @@ export const HightlightedHero: React.FC<HightlightedHeroProps> = ({
         />
       </div>
       <div className={styles.rightColumn}>
-        {secondaryHighlighted.map((product) => {
+        {secondaryHighlighted.map((product, index) => {
           return (
             <ProductCard
               layoutType="rectangular"
               key={product.name}
               product={product}
+              priorityImage={index === 0 ? true : false}
             />
           );
         })}
