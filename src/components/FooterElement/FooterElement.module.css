@@ -41,9 +41,14 @@
 .bottomSection {
   line-height: 1.5;
   display: flex;
-  gap: 1rem;
+  gap: 2rem;
   padding-top: 1rem;
   justify-content: space-between;
+}
+
+.bottomSection p {
+  max-width: 400px;
+  text-align: left;
 }
 
 @media (max-width: 568px) {

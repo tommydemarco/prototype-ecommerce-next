@@ -32,7 +32,8 @@ export const FooterElement: React.FC = () => {
         </div>
         <div className={styles.bottomSection}>
           <p>
-            &copy; 2024 Tommaso De Marco |{" "}
+            This prototype is part of a bachelor thesis project by Tommaso De
+            Marco |{" "}
             <a
               href="https://github.com/tommydemarco/prototype-ecommerce-next"
               target="_blank"
@@ -40,7 +41,10 @@ export const FooterElement: React.FC = () => {
               View the source code
             </a>
           </p>
-          <p>Bachelor thesis project - prototype</p>
+          <p>
+            The placeholder product images are based on a photo by Sameer
+            Kalani, downloaded from Pexels.com
+          </p>
         </div>
       </div>
     </footer>
