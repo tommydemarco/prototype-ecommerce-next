@@ -41,6 +41,7 @@ export const ProductDetails: React.FC<ProductDetailsProps> = ({ product }) => {
             loading="eager"
             priority={true}
             quality={80}
+            sizes="1000px"
           />
           <div className={styles.controls}>
             <button
@@ -76,6 +77,7 @@ export const ProductDetails: React.FC<ProductDetailsProps> = ({ product }) => {
                 className={styles.thumbnail}
                 loading="lazy"
                 quality={80}
+                sizes="160px"
               />
             </div>
           ))}
