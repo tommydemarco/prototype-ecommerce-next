@@ -33,6 +33,7 @@ export const CartProduct: React.FC<CartProductProps> = ({
           className={styles.image}
           loading="lazy"
           quality={80}
+          sizes="160px"
         />
         <button
           name="remove product"
