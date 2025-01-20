@@ -9,7 +9,7 @@ interface FeaturedSliderProps {
 
 export const FeaturedSlider: React.FC<FeaturedSliderProps> = ({ products }) => {
   const sliderRef = useRef<HTMLDivElement>(null);
-  const animationRef = useRef<number | null>(null);
+  const intervalRef = useRef<number | null>(null);
   const isHoveredRef = useRef(false);
 
   useEffect(() => {
@@ -17,7 +17,8 @@ export const FeaturedSlider: React.FC<FeaturedSliderProps> = ({ products }) => {
     if (!slider) return;
 
     let scrollDirection = 1;
-    const speed = 8;
+    const speed = 2;
+    const intervalDuration = 50;
 
     const animateScroll = () => {
       if (!isHoveredRef.current) {
@@ -29,21 +30,19 @@ export const FeaturedSlider: React.FC<FeaturedSliderProps> = ({ products }) => {
 
         slider.scrollLeft += scrollDirection * speed;
       }
-      animationRef.current = requestAnimationFrame(animateScroll);
     };
 
-    animationRef.current = requestAnimationFrame(animateScroll);
+    intervalRef.current = window.setInterval(animateScroll, intervalDuration);
 
     const stopAnimation = () => (isHoveredRef.current = true);
-
     const startAnimation = () => (isHoveredRef.current = false);
 
     slider.addEventListener("mouseenter", stopAnimation);
     slider.addEventListener("mouseleave", startAnimation);
 
     return () => {
-      if (animationRef.current) {
-        cancelAnimationFrame(animationRef.current);
+      if (intervalRef.current !== null) {
+        clearInterval(intervalRef.current);
       }
       slider.removeEventListener("mouseenter", stopAnimation);
       slider.removeEventListener("mouseleave", startAnimation);
