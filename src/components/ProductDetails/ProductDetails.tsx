@@ -35,13 +35,13 @@ export const ProductDetails: React.FC<ProductDetailsProps> = ({ product }) => {
           <Image
             src={productImages[currentImageIndex]}
             alt={product.name}
-            width={550}
-            height={550}
+            width={400}
+            height={400}
             className={styles.mainImage}
             loading="eager"
             priority={true}
             quality={80}
-            sizes="1000px"
+            sizes="800px"
           />
           <div className={styles.controls}>
             <button

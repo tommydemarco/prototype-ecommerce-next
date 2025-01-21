@@ -9,7 +9,7 @@ const nextConfig: NextConfig = {
   images: {
     formats: ["image/webp"],
     deviceSizes: [],
-    imageSizes: [160, 1000],
+    imageSizes: [160, 800],
   },
 };
 
