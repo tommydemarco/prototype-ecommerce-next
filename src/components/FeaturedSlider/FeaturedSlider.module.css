@@ -14,6 +14,7 @@
   flex-wrap: nowrap;
   gap: 20px;
   scroll-behavior: smooth;
+  overscroll-behavior: contain;
 }
 
 .slider > * {

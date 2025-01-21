@@ -22,9 +22,13 @@ export const FeaturedSlider: React.FC<FeaturedSliderProps> = ({ products }) => {
 
     const animateScroll = () => {
       if (!isHoveredRef.current) {
-        if (slider.scrollLeft + slider.offsetWidth >= slider.scrollWidth) {
+        if (
+          slider.scrollLeft + slider.offsetWidth >=
+            slider.scrollWidth - speed &&
+          scrollDirection === 1
+        ) {
           scrollDirection = -1;
-        } else if (slider.scrollLeft <= 0) {
+        } else if (slider.scrollLeft <= speed && scrollDirection === -1) {
           scrollDirection = 1;
         }
 
