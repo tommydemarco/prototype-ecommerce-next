@@ -33,7 +33,11 @@ export const CartProduct: React.FC<CartProductProps> = ({
           className={styles.image}
           loading="lazy"
           quality={80}
-          sizes="160px"
+          /**
+           * Ensures appropariately size generated image is downloaded consistently
+           * across all browser, with the same size as the Nuxt Img countearpart
+           */
+          sizes="80px"
         />
         <button
           name="remove product"
