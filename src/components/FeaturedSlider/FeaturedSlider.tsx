@@ -37,8 +37,14 @@ export const FeaturedSlider: React.FC<FeaturedSliderProps> = ({ products }) => {
     const stopAnimation = () => (isHoveredRef.current = true);
     const startAnimation = () => (isHoveredRef.current = false);
 
+    const handleTap = (event: MouseEvent | TouchEvent) => {
+      if (slider.contains(event.target as Node)) isHoveredRef.current = true;
+      else isHoveredRef.current = false;
+    };
+
     slider.addEventListener("mouseenter", stopAnimation);
     slider.addEventListener("mouseleave", startAnimation);
+    document.addEventListener("pointerdown", handleTap);
 
     return () => {
       if (intervalRef.current !== null) {
@@ -46,6 +52,7 @@ export const FeaturedSlider: React.FC<FeaturedSliderProps> = ({ products }) => {
       }
       slider.removeEventListener("mouseenter", stopAnimation);
       slider.removeEventListener("mouseleave", startAnimation);
+      document.removeEventListener("pointerdown", handleTap);
     };
   }, []);
 
