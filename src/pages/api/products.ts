@@ -26,6 +26,7 @@ export default async function handler(
         searchText: (searchText as string) || undefined,
       });
     });
+    console.log("CSR: fetched products");
 
     res.status(200).json(products);
   } catch (error) {

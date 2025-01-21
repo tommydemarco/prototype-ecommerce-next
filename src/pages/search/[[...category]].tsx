@@ -49,7 +49,6 @@ const SearchPage = () => {
         };
         const query = new URLSearchParams(queryParams);
         const response = await fetch(`/api/products?${query}`);
-        console.log("CSR: Fetching products data");
         if (!response.ok) {
           throw new Error("Failed to fetch products");
         }
