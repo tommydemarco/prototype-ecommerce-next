@@ -33,7 +33,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({
           loading={!!priorityImage ? "eager" : "lazy"}
           priority={!!priorityImage}
           quality={80}
-          sizes="1000px"
+          sizes="800px"
         />
       </div>
       <div className={styles.info}>
