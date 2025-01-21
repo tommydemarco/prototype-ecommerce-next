@@ -14,7 +14,6 @@ export default async function handler(
     const categories = await withMongoClient(async (client) => {
       return await fetchProductCategories(client);
     });
-    console.log("CSR: fetched categories");
 
     res.status(200).json(categories);
   } catch (error) {
