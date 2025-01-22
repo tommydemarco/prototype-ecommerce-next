@@ -13,17 +13,15 @@ export const FeaturedSlider: React.FC<FeaturedSliderProps> = ({ products }) => {
   const isHoveredRef = useRef(false);
 
   useEffect(() => {
+    // Based on the approach from https://www.geeksforgeeks.org/how-to-detect-touch-screen-device-using-javascript/
+    if ("ontouchstart" in window || navigator.maxTouchPoints > 0) return;
+
     const slider = sliderRef.current;
     if (!slider) return;
 
     let scrollDirection = 1;
     const speed = 2;
     const intervalDuration = 50;
-
-    // Based on the approach from https://www.geeksforgeeks.org/how-to-detect-touch-screen-device-using-javascript/
-    const isTouchDevice =
-      "ontouchstart" in window || navigator.maxTouchPoints > 0;
-    if (isTouchDevice) return;
 
     const animateScroll = () => {
       if (!isHoveredRef.current) {
@@ -50,9 +48,7 @@ export const FeaturedSlider: React.FC<FeaturedSliderProps> = ({ products }) => {
     slider.addEventListener("mouseleave", startAnimation);
 
     return () => {
-      if (intervalRef.current !== null) {
-        clearInterval(intervalRef.current);
-      }
+      if (intervalRef.current !== null) clearInterval(intervalRef.current);
       slider?.removeEventListener("mouseenter", stopAnimation);
       slider?.removeEventListener("mouseleave", startAnimation);
     };
