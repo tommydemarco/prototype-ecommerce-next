@@ -14,7 +14,7 @@ export const FeaturedSlider: React.FC<FeaturedSliderProps> = ({ products }) => {
 
   useEffect(() => {
     // Based on the approach from https://www.geeksforgeeks.org/how-to-detect-touch-screen-device-using-javascript/
-    if ("ontouchstart" in window || navigator.maxTouchPoints > 0) return;
+    if ("ontouchstart" in window || navigator?.maxTouchPoints > 0) return;
 
     const slider = sliderRef.current;
     if (!slider) return;
