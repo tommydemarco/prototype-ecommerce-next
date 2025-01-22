@@ -34,6 +34,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({
           priority={!!priorityImage}
           quality={80}
           sizes="800px"
+          decoding={!!priorityImage ? "sync" : "async"}
         />
       </div>
       <div className={styles.info}>

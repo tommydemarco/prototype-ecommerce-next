@@ -38,6 +38,7 @@ export const CartProduct: React.FC<CartProductProps> = ({
            * across all browser, with the same size as the Nuxt Img countearpart
            */
           sizes="80px"
+          decoding="async"
         />
         <button
           name="remove product"

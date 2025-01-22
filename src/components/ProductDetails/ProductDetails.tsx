@@ -42,6 +42,7 @@ export const ProductDetails: React.FC<ProductDetailsProps> = ({ product }) => {
             priority={true}
             quality={80}
             sizes="800px"
+            decoding={"sync"}
           />
           <div className={styles.controls}>
             <button
@@ -82,6 +83,7 @@ export const ProductDetails: React.FC<ProductDetailsProps> = ({ product }) => {
                  * across all browser, with the same size as the Nuxt Img countearpart
                  */
                 sizes="80px"
+                decoding="async"
               />
             </div>
           ))}
